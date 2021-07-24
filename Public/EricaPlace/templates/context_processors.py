@@ -14,7 +14,6 @@ def totalmenu(request):
   content = {'mainplace' : rooms, 'buildings' : buildings}
   return content
 
-
 def search(request):
   rooms = Room.objects
   roomlist = {}
