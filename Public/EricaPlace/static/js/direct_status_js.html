@@ -1,0 +1,18 @@
+<script>
+  function openForm(rsv_id,type) {
+    document.getElementById("myForm"+rsv_id+"Type"+type).style.display = "block";
+  }
+  
+  function closeForm(rsv_id,type) {
+    document.getElementById("myForm"+rsv_id+"Type"+type).style.display = "none";
+  }
+
+
+  function authOpenForm(rsv_id){
+    document.getElementById("myForm"+rsv_id).style.display = "block";
+  }
+
+  function authCloseForm(rsv_id) {
+    document.getElementById("myForm"+rsv_id).style.display = "none";
+  }
+</script>
