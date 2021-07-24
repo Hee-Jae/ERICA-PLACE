@@ -1,0 +1,75 @@
+{% extends 'admin_base.html' %}
+{% block head %}
+    <link rel="stylesheet" href="/static/style/building.css">
+    <link rel="stylesheet" href="/static/style/modify_building.css">
+    <style>
+            /* for nav */
+      .menu_3> .menu_a {
+         font-weight: normal;
+         color: white;      
+      }
+      .menu_3 {          
+          background-color:  rgb(68, 86, 117);          
+      }
+      .menu_5 {
+          background-color: white;      
+      }
+      .menu_5 > .menu_a{
+          font-weight: bold;
+          color: rgb(68, 86, 117);
+          box-shadow: 0px 0px 5px  rgba(68, 86, 117,0.5) inset;   
+      }
+    </style>
+    {% include 'main_js.html' %}
+{% endblock head %}
+{% block contents %}
+{% if messages %}
+    <span class="messages">
+        {% for message in messages %}
+        <script>
+            alert("{{ message}}");
+        </script>
+        {% endfor %}
+    </span>
+{% endif %}
+ <main>
+    <div class="header">
+      건물 수정
+      <div class="header-bar"></div>
+      <div class="but_create a" onClick="location.href='{% url 'create_building' %}' ">건물추가</div>
+    </div>
+    
+    <div class="cont">
+      {% for building in buildings.all %}
+      <div class="card">
+        <div class="card-img" onClick="location.href='{% url 'update_building' building.id %}' ">
+          <img src="{{ building.photo.url }}" />          
+          <div class="card-detail">
+            <div class="goto-reserv a">
+              수정하기
+              <img src="/static/image/next.png" class="a" />
+            </div>
+            
+          </div>
+        </div>
+        <div class="card-description">
+          <div class="card-des-top">            
+            <p class="facility">{{ building.english_name }}</p>
+            <p class="number">[ {{ building.code }} ]</p>
+          </div>
+          <p class="title">{{ building.name }}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+      <div class="card">
+        <div class="card-img-plus a" onClick="location.href='{% url 'create_building' %}' ">
+          <img class="plusimg" src="/static/image/plus.png">
+          <div class="createbuilding">
+            건물추가하기
+          </div>                    
+        </div>        
+      </div>
+    </div>
+  </main>
+{% endblock contents %}
