@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/login.css">
+<style>
+    body{
+        margin:0;
+    }
+    /* .messages{
+        color:red;
+    } */
+</style>
+{% include 'login_js.html' %}
+{% endblock head %}
+{% block contents %}
+
+    <main>
+        <div class="header">            
+            신청현황 조회
+            <div class="header-bar"></div>
+        </div>
+        <br><br>
+        <form action="{% url 'status_list' %}" method="POST">
+        {% csrf_token %}
+        <div class="cont">    
+            <div class="inputbox">
+                <div class="verify v1"></div>
+                <input name="name" type="text" onfocusout="verify_input('input_1')" class="input" id="input_1" placeholder="신청자 성함">                
+            </div>
+            <div class="inputbox">
+                <div class="verify v2"></div>
+                <input name="phone" type="tel" onfocusout="verify_input('input_2')" class="input" id="input_2" placeholder="전화번호">
+            </div>
+            <div class="under-bar">
+                <br>
+                {% if messages %}
+                <span class="messages">
+                    {% for message in messages %}
+                    <script>
+                        alert("{{ message}}");
+                    </script>
+                    {% endfor %}
+                </span>
+                {% endif %}
+                대관신청 시에 작성한 정보를 기입해주세요  
+            </div>
+            <button class="button" type="submit">
+                <img src="/static/image/searchbutton.png">
+                조회하기
+            </button>                        
+        </div>
+        </form>
+        
+
+        
+    </main>
+{% endblock contents %}

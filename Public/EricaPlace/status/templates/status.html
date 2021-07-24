@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/status.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% include 'direct_status_js.html' %}
+{% endblock head %}
+{% block contents %}
+{% if messages %}
+    <span class="messages">
+        {% for message in messages %}
+        <script>
+            alert("{{ message}}");
+        </script>
+        {% endfor %}
+    </span>
+    {% endif %}
+    <main>
+        <header>
+                <img src="/static/image/monitor.png">
+                {{reservation.0.username}}님의 신청 현황 페이지
+        </header>
+        {% for rsv in reservation %}
+        <div class="main-cont">     
+            
+            <div class="cont-room-info">
+                <div class="c-r-left"> 방 이름 </div>
+                <div class="c-r-right">{{ rsv.room_id.name }}</div>
+                <div class="c-r-left"> 날 짜 </div>
+                <div class="c-r-right">{{ rsv.rsv_date|date:"Y-m-d" }}</div>
+                <div class="c-r-left"> 이용예정 시간</div>                
+                <div class="c-r-right"> {{ rsv.start_time }}:00 - {{ rsv.end_time }}:00</div>
+                <div class="c-r-left"> 인원 수 </div>
+                <div class="c-r-right">{{ rsv.headcount }}</div>
+                <div class="c-r-left"> 신청자 이름 </div>
+                <div class="c-r-right">{{ rsv.username }}</div>
+                <div class="c-r-left"> 예약시간 </div>
+                <div class="c-r-right">{{ rsv.date|date:'Y-m-d H:i:s'}}</div>
+            </div>
+
+            <div class="cont-user-info">
+                {% if rsv.user_type == 1 %}
+                <div class="c-u-left">신분</div>
+                <div class="c-u-right">학생</div>
+                {% elif rsv.user_type == 2 %}
+                <div class="c-u-left"> 신분 </div>
+                <div class="c-u-right">관계자</div>
+                {% elif rsv.user_type == 3 %}
+                <div class="c-u-left">신분 </div>
+                <div class="c-u-right"> 외부인</div>
+                {% endif %}
+
+                <div class="c-u-left"> 그룹 명 </div>
+                <div class="c-u-right">{{ rsv.group_name }}</div>
+                {% if rsv.user_type == 2%}
+                <div class="c-u-left"> 학번/사업자 번호 </div>
+                <div class="c-u-right"></div>
+                {% else %}
+                <div class="c-u-left"> 학번/사업자 번호 </div>
+                <div class="c-u-right">{{ rsv.user_number }}</div>
+                {% endif %}
+                <div class="c-u-left"> 사용 목적 </div>
+                <div class="c-u-right">{{ rsv.purpose }}</div>
+                <div class="c-u-left"> 핸드폰 번호</div>
+                <div class="c-u-right">{{ rsv.phone_number }}</div>
+                <div class="c-u-left">이메일 </div>
+                <div class="c-u-right">{{ rsv.email }}</div>
+            </div>
+            
+            <div class="cont-check">
+                {% if rsv.admit == 0 %}
+                <div class="admit fx">
+                    신청 상태 : 처리중
+                    <div class="admit-color ac1"></div>
+                </div>
+                {% elif rsv.admit == 1%}
+                <div class="admit fx">
+                    신청 상태 : 승인 완료
+                    <div class="admit-color ac2"></div>
+                </div>
+                {% else %}
+                <div class="admit fx">
+                    신청 상태 : 승인 거부
+                    <div class="admit-color ac3"></div>
+                </div>
+                {% endif %}
+
+                {% if rsv.admit == 0 %}
+                <div class="cancel fx">
+                    <div class="button_cancle a" id="but_reject" onclick ="authOpenForm({{ rsv.id }})">
+                        신청취소               
+                    </div> 
+                </div>
+                {% endif %}
+            </div>
+            {% include 'auth_check.html' %}            
+        </div>
+        {% endfor %}
+
+    </main>
+
+{% endblock contents %}
