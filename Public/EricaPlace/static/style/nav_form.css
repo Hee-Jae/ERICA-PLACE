@@ -1,0 +1,10 @@
+.left_menu_button a {
+  text-decoration: none !important;
+  color: white !important;
+  font-size: 16px !important;
+  font-family: NanumGothic !important;
+}
+
+.left_menu_button a:hover {
+  font-size: 14.5px !important;
+}
