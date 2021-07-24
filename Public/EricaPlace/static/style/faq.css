@@ -1,0 +1,112 @@
+html,
+body {
+  width: 100%;
+}
+body {
+  height: 1300px;
+}
+main {
+  margin-top: 70px;
+  width: 90%;
+  height: 1000px;
+  float: left;
+}
+.header {
+  font-size: 30pt;
+  font-weight: lighter;
+  color: #585858;
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header-bar {
+  position: relative;
+  width: 70%;
+  height: 5px;
+  border-bottom: 1px solid gray;
+  margin: 10px;
+}
+.menubar_1 {
+  margin-top: 5px;
+  width: 100%;
+}
+.article {
+  position: relative;
+}
+.table_css {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  font-size: 12pt;
+}
+.table_css > tbody {
+  width: 100%;
+}
+.th_writer {
+  min-width: 60px;
+}
+.th_number {
+  min-width: 30px;
+}
+.table_css > tbody > tr {
+  height: 50px;
+  width: 100%;
+  transition-duration: 0.4s;
+}
+.table_css > thead > tr {
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  text-align-last: center;
+  position: relative;
+  z-index: 3;
+}
+.table_title {
+  background-color: #fafafa;
+}
+
+.hidden_table {
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  height: 50px;
+  overflow: hidden;
+}
+.hidden_table > td {
+  height: 50px;
+}
+.nav-search,
+.nav-recommend {
+  height: 1230px;
+}
+.totalmenu {
+  height: 1300px;
+}
+/* for nav */
+.menu_4 {
+  background-color: white;
+}
+.menu_4 > .menu_a {
+  font-weight: bold;
+  color: rgb(68, 86, 117);
+  box-shadow: 0px 0px 5px rgba(68, 86, 117, 0.5) inset;
+}
+@media screen and (min-width: 650px) and (max-width: 1300px) {
+  main {
+    width: 80%;
+  }
+  .table_css {
+    font-size: 10pt;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 650px) {
+  main {
+    width: 70%;
+  }
+  .table_css {
+    font-size: 10pt;
+  }
+}
