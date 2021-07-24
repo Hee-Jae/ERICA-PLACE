@@ -1,0 +1,59 @@
+{% load static %}
+<script>    
+  var roomname = [];
+  var roomimg = [];
+  var slidenum = 0;
+  var roomid = [];
+</script>
+
+{% for room in rooms %}
+<script>
+  roomname.push({name:"{{room.subname}}", num:"{{room.name}}"});
+  roomimg.push("{{room.photo.url}}");
+  roomid.push({{room.id}});
+</script>
+{% endfor %}
+
+<script>
+  var imgrsrc;
+  function slide_left(){             
+      if(--slidenum<0){slidenum=5;}
+      $("#card1").css("opacity","0.1");          
+      setTimeout(() => {
+          $("#card1").css("opacity","1");
+          imgsrc = roomimg[slidenum];        
+          document.getElementById("card1").src = imgsrc;
+          document.getElementById("card-text-p-description").innerHTML = roomname[slidenum].num;    
+          document.getElementById("card-text-p-name").innerHTML = roomname[slidenum].name;
+      }, 300);
+  }
+  function slide_right(){            
+      if(++slidenum>5){slidenum=0;}
+      $("#card1").css("opacity","0.1");          
+      setTimeout(() => {
+          $("#card1").css("opacity","1");    
+          imgsrc = roomimg[slidenum];        
+          document.getElementById("card1").src = imgsrc;
+          document.getElementById("card-text-p-description").innerHTML = roomname[slidenum].num;    
+          document.getElementById("card-text-p-name").innerHTML = roomname[slidenum].name;       
+      }, 300);
+  }
+
+
+function clicked_menu(a){
+    if(a==1){$(".menu").css("transform","translateY(0)");}
+    else{$(".menu").css("transform","translateY(-100%)");}
+}
+
+function login(){
+    alert(document.getElementById("input_1").value);
+    // if(document.getElementById("input_1").value ==""){
+    //     alert("Please insert blank");
+    // }
+}
+
+function reservation(){
+    var url = "{% url 'rsv' 1 %}".replace('/1', '/'+roomid[slidenum].toString());
+    location.href = url;
+}
+</script> 
