@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/recommend.css">
+{% include 'main_js.html' %}
+{% endblock head %}
+
+{% block contents %}
+
+<main>
+  <div class="header">
+    대관장소추천
+    <div class="header-bar" style="margin: 10px;"></div>
+    <div class="purpose" 
+    style="font-size: 14pt; font-weight: lighter;">
+      {{ purpose.use_purpose }}
+    </div>
+  </div>
+  <div class="cont">
+    {% for roomid, info in rooms %}
+      <div class="card">
+        <div class="card-img" onClick= "location.href = '{% url 'rsv' roomid %}' ">
+          <img src="{{ info.0.photo.url }}" />
+          <div class="card-detail a">
+            <div class="goto-reserv a" >
+              대관하기
+              <img src="{% static 'image/next.png' %}" class="a" />
+            </div>
+          </div>
+        </div>
+        <div class="card-description">
+          <div class="card-des-top">
+            <p class="number">{{ info.0.name }}</p>
+            <p class="number">수용인원 : {{ info.0.capacity }}</p>            
+          </div>
+          <div class="card-des-bottom">
+            <p class="title">{{ info.0.subname }}</p>
+            <p class="facility">대여횟수 : {{ info.1 }}</p>
+          </div>          
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</main>
+
+{% endblock %}
