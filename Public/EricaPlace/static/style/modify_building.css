@@ -1,0 +1,161 @@
+body{
+    height: 1300px;
+}
+
+/* modify_building.html */
+.but_create{
+    position: absolute;
+    right: 10%;
+    width: 90px;
+    height: 40px;
+    
+    font-size: 15pt;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(68, 86, 117);
+    color: white;
+    border: 2px solid rgb(68, 86, 117);
+    border-radius: 5px;
+}
+.createbuilding{
+    margin-top: 20px;    
+    font-size: 20pt;
+}
+.card-img-plus{
+    border: 1px solid rgba(68, 86, 117,0.3);  
+    border-radius: 5px;
+    width: 400px;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.plusimg{ 
+    opacity: 0.6;
+    filter: invert(100%);
+    width: 100px;
+    height: 100px;
+    border: 2px solid rgba(68, 86, 117,0.3);
+    background-color: rgb(68, 86, 117);
+    border-radius: 100px;
+}
+
+
+/* create_building.html */
+.cr_main{
+    float: left;
+    width: 85%;
+    height: 800px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+}
+.cr_form{
+    width: 650px;
+    height: 350px;    
+    border: 1px solid rgb(68, 86, 117);
+    border-radius: 5px;
+
+}
+.cr_form>form>.form-left{
+    margin-top: 40px;
+    float: left;
+    width: 50%;
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+}
+.cr_form>form>.form-right{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    width: 50%;
+    height: 270px;
+}
+
+.cr{
+    margin-bottom: 20px;
+}
+.cr > input{
+    border:none;
+    width: 250px;
+    height: 40px;
+    font-size: 15pt;
+    text-align: center;
+    border-bottom: 2px solid rgb(68, 86, 117);
+    color: rgb(68, 86, 117);
+}
+input:focus {outline:none;}
+.form-left> button{   
+    width: 90px; 
+    height: 40px;
+    border: none;
+    color: white;
+    border: 2px solid rgba(68, 86, 117,0.3);
+    background-color: rgb(68, 86, 117);
+    border-radius: 5px;
+}
+
+.cr_bld.photo{
+    
+}
+#imgInput{
+    border: none;
+}
+#img_section{
+    transition-duration: .5s;
+    width: 300px;
+    height: 1px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.filebox{
+    margin-left: 60px;        
+}
+#crlabel{
+    
+}
+.filebox label {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color: #fff;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: rgb(68, 86, 117);
+    cursor: pointer;
+    border: 1px solid rgb(98, 116, 137);
+    border-radius: .25em;    
+    transition-duration: .3s;
+}
+
+.filebox label:hover {
+    background-color: rgba(68, 86, 117,0.7);
+}
+
+.filebox label:active {
+    background-color: rgba(68, 86, 117,0.2);
+}
+
+input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+
