@@ -1,0 +1,97 @@
+{% extends 'admin_base.html' %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/update_room.css">
+{% endblock head %}
+
+{% block contents %}
+
+<main>
+    <form id = "urform" name = "urform" class="ur-form" enctype="multipart/form-data" action="{% url 'create_room' building.id %}" method="POST">
+        {% csrf_token %}
+        <img id="img_section2" src = "/static/image/white.png"  height="400px">              
+
+        <div class="fr-cont">
+          <div class="fr-cont-in">
+            <div class="in-left"><label for="college">소속 단과대학</label></div>
+                <select name="college">
+                    {% for college in colleges.all %}
+                        <option value="{{college.id}}" selected>{{college.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>       
+            <div class="fr-cont-in">
+                <div class="in-left">
+                    건물명
+                </div>
+                <input type="text" name="building" value="{{building.name}}" disabled>  
+            </div>            
+            <div class="fr-cont-in">
+              <div class="in-left">위치 </div>
+              <input type="text" placeholder="ex) 클러스터 501" name="name">        
+          </div>
+            <div class="fr-cont-in">
+                <div class="in-left">이름 </div>
+                <input type="text" placeholder="ex) Maroon" name="subname">        
+            </div>
+            <div class="fr-cont-in">
+                <div class="in-left">수용인원 </div>
+                <input type="number" placeholder="숫자만 입력해주세요" name = "capacity">        
+            </div>
+            <div class="fr-cont-in">
+                <div class="in-left">기자재</div>
+                <input type="text" name="equipment" placeholder="주요 기자재와 수를 입력하세요. ex) 빔프로젝터 2 " >       
+            </div>                 
+            <div class="fr-cont-in">
+                <div class="in-left">사진</div>
+                <div class="filebox">
+                    <label for="imgInput" >업로드</label>
+                    <input id="imgInput" type="file" name="photo" accept=".jpg, .jpeg, .png">        
+                </div>
+                
+            </div>            
+            <div class="fr-cont-in confirm2">
+                <button class="a confirm" type="button" onclick="AddRoomChk()" class="a btn btn-primary" > 생성하기 </button>
+            </div>
+            
+        </div>
+    </form>
+</main>
+<script>
+    function AddRoomChk() {
+    var urform = document.urform;
+    var subname = urform.subname.value;
+    var capacity = urform.capacity.value;
+    var equipment = urform.equipment.value;
+    var photo = urform.photo.value;
+    var college = urform.college.value;
+    var building = urform.building.value;
+    if (!subname) {
+      alert("서브네임을 입력했는지 확인해주세요.");
+    } else if (!capacity) {
+      alert("수용인원을 입력했는지 확인해주세요.");
+    } else if (!equipment) {
+      alert("기자재 정보를 입력했는지 확인해주세요.");
+    } else if (!photo) {
+      alert("사진을 업로드했는지 확인해주세요.");
+    } else if (!building) {
+      alert("건물명을 입력했는지 확인해주세요.")
+    } else if (!college) {
+      alert("소속 단과대학을 입력했는지 확인해주세요.");
+    } else {
+      urform.submit();
+    }
+  }
+    function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $("#img_section2").attr("src", e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#imgInput").change(function () {    
+    readURL(this);    
+  });
+</script>
+{% endblock contents %}
