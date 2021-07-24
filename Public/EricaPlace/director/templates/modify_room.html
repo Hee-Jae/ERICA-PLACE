@@ -1,0 +1,79 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/mainplace.css">
+<link rel="stylesheet" href="/static/style/modify_room.css">
+<style>
+  .menu_2> .menu_a {
+     font-weight: normal;
+     color: white;      
+  }
+  .menu_2 {          
+      background-color:  rgb(68, 86, 117);          
+  }
+  .menu_5 {
+      background-color: white;      
+  }
+  .menu_5 > .menu_a{
+      font-weight: bold;
+      color: rgb(68, 86, 117);
+      box-shadow: 0px 0px 5px  rgba(68, 86, 117,0.5) inset;   
+  }
+</style>
+{% include 'main_js.html' %}
+{% endblock head %}
+{% block contents %}
+{% if messages %}
+<span class="messages">
+    {% for message in messages %}
+    <script>
+        alert("{{ message}}");
+    </script>
+    {% endfor %}
+</span>
+{% endif %}
+
+<main>
+    <div class="header">
+        {% if not rooms %}
+          방이 없습니다.
+        {% else %}
+          {{rooms.0.building.name}}
+        {% endif %}
+        <div class="header-bar"></div>
+        <div class="but_create a" onClick="location.href='{% url 'create_room' building.id %}' ">방추가</div>
+    </div>
+      <div class="cont">
+  
+        {% for room in rooms %}
+  
+        <div class="card">
+          <div class="card-img" onClick= "location.href ='{% url 'update_room' room.id %}' ">
+            <img src="{{ room.photo.url }}" />                        
+            <div class="card-detail">
+              <div class="goto-reserv a">
+                수정하기
+                <img src="{% static 'image/next.png' %}" class="a" />
+              </div>
+            </div>
+          </div>
+          <div class="card-description">
+            <div class="card-des-top">
+              <p class="number">{{ room.name }}</p>
+              <p class="facility">{{ room.capacity }}석</p>
+            </div>
+            <p class="title">{{ room.subname }}</p>
+          </div>
+        </div> 
+        {% endfor %}
+        <div class="card">
+            <div class="card-img-plus a" onClick="location.href='{% url 'create_room' building.id %}' ">
+              <img class="plusimg" src="/static/image/plus.png">
+              <div class="createbuilding">
+                방 추가하기
+              </div>                    
+            </div>        
+          </div>
+    </div>
+</main>
+{% endblock contents %}
