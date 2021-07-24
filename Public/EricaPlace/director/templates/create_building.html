@@ -1,0 +1,82 @@
+{% extends 'admin_base.html' %} {% block head %}
+<link rel="stylesheet" href="/static/style/update_room.css" />
+{% endblock head %} {% block contents %}
+
+<main>
+    <form 
+        id="Crform"
+        name="Crform"
+        method="POST"
+        enctype="multipart/form-data"
+        action="{% url 'create_building' %}"
+        class="ur-form"
+    >
+        {% csrf_token %}
+        
+        <img id="img_section2" src = "/static/image/white.png">              
+        
+        <div class="fr-cont">
+            <div class="fr-cont-in fr-cont-in2">
+                <div class="in-left">건물명 </div>
+                <input type="text" placeholder="ex) 1공학관" name="name">        
+            </div>
+            <div class="fr-cont-in fr-cont-in2">
+                <div class="in-left">영물건물명 </div>
+                <input type="text" placeholder="Engeenering 1" name="english_name">        
+            </div>
+            <div class="fr-cont-in fr-cont-in2">
+                <div class="in-left">건물번호</div>
+                <input type="text" name="code" placeholder="100-1" >
+            </div>            
+            <div class="fr-cont-in fr-cont-in2">
+                <div class="in-left">사진</div>
+                <div class="filebox">
+                    <label for="imgInput" >업로드</label>
+                    <input id="imgInput" type="file" name="photo" accept=".jpg, .jpeg, .png">        
+                </div>
+                
+            </div>            
+            <div class="fr-cont-in fr-cont-in2 confirm2" style="height: 96px;">
+                <button class="a confirm" type="button" onclick="AddBuildingChk()" class="a btn btn-primary" > 생성하기 </button>
+            </div>
+            
+        </div>
+    </form>
+</main>
+
+<script>
+  function AddBuildingChk() {
+    var Crform = document.Crform;
+    var name = Crform.name.value;
+    var english_name = Crform.english_name.value;
+    var code = Crform.code.value;
+    var photo = Crform.photo.value;
+    if (!name) {
+      alert("건물명을 입력했는지 확인해주세요.");
+    } else if (!english_name) {
+      alert("영문건물명을 입력했는지 확인해주세요.");
+    } else if (!code) {
+      alert("건물번호를 입력했는지 확인해주세요.");
+    } else if (!photo) {
+      alert("사진을 업로드했는지 확인해주세요.");
+    } else {
+      Crform.submit();
+    }
+  }
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $("#img_section2").attr("src", e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#imgInput").change(function () {
+    readURL(this);    
+    // $("#crlabel").css("padding-top", "10px");
+    // $("#crlabel").css("padding-bottom", "10px");
+  });
+</script>
+{% endblock contents %}
