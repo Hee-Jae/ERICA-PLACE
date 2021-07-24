@@ -1,0 +1,33 @@
+.card-img-plus{
+    border: 1px solid rgba(68, 86, 117,0.3);  
+    border-radius: 5px;
+    width: 400px;
+    height: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.plusimg{ 
+    opacity: 0.6;
+    filter: invert(100%);
+    width: 100px;
+    height: 100px;
+    border: 2px solid rgba(68, 86, 117,0.3);
+    background-color: rgb(68, 86, 117);
+    border-radius: 100px;
+}
+.but_create {
+    position: absolute;
+    right: 10%;
+    width: 90px;
+    height: 40px;
+    font-size: 15pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(68, 86, 117);
+    color: white;
+    border: 2px solid rgb(68, 86, 117);
+    border-radius: 5px;
+}
