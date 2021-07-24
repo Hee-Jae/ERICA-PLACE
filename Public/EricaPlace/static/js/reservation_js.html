@@ -1,0 +1,193 @@
+<script>
+
+    var date;
+    var rsvinfo = JSON.parse("{{dateinfo|escapejs}}");
+
+    var count = 0;
+    var arr = [];
+
+    $(function () {
+        $('#datePicker').datetimepicker({
+          format: 'YYYY-MM-DD',
+          locale: 'kr',
+          minDate: new Date().setHours(0,0,0,0) 
+          
+          
+        }).on('dp.change',function(event){
+          date = $('#datePicker').data('date');
+          var Ele = document.getElementsByName("chk");
+
+          arr = [];
+          count = 0;
+
+          for (var i = 0; i < 14; i++) {
+            // var nextEle = Ele.nextElementSibling;
+            Ele[i].disabled = false;
+            Ele[i].checked = false;
+            // var Ele = nextEle;
+          }
+        
+          for (var time in rsvinfo[date]) {
+            var st = Number(rsvinfo[date][time][0]) - 8;
+            var ed = Number(rsvinfo[date][time][1]) - 8;
+            var Ele = document.getElementsByName("chk");
+
+
+            // for (var i = 9; i < st; i++) {
+            //   console.log(i);
+            //   var nextEle = Ele.nextElementSibling;
+            //   var Ele = nextEle;
+            // }
+            // console.log("\n");
+            for (var i = st; i <= ed; i++) {
+              // var nextEle = Ele.nextElementSibling;
+              Ele[i].disabled = true;
+              // var Ele = nextEle;
+            }
+          }
+        });
+    });
+
+
+  function daycheck() {
+    var formRsv = document.formRsv;
+    // var datePicker = formRsv.datetimepicker1.value;
+    var datePicker = $('#datePicker').data('date');
+    console.log(datePicker);
+    var size = document.getElementsByName("chk").length;
+    var n = false;
+    for (var i = 0; i < size; i++) {
+      if (document.getElementsByName("chk")[i].checked == true) {
+        n = true;
+      }
+    }
+    if (!datePicker) {
+      alert("날짜를 선택하세요.");
+    } else if (!n) {
+      alert("시간을 선택하세요.");
+    } else {
+      formRsv.submit();
+    }
+  }
+
+  
+
+  function ClickOK(e) {
+    // var _this = document.getElementById("timechk");
+    var _this;
+
+    $("input[name=chk]:checked").each(function () {
+      // console.log("checkbox값 : " + $(this).val());
+      _this = $(this).val();
+    });
+    _this = Number(_this);
+
+    var rsvinfo = JSON.parse("{{dateinfo|escapejs}}");
+    arr[count] = _this;
+    count += 1;
+
+    // console.log(count);
+
+    var n = 0;
+    for (var i = 0; i < 14; i++) {
+      if (document.getElementsByName("chk")[i].checked == true) {
+        n = n + 1;
+      }
+    }
+    var flag = false;
+    if(n > 2){
+      alert("처음 시간과 끝 시간만 선택해주세요.");
+      count = 0;
+      flag = true;
+      var Ele = document.getElementsByName("chk");
+      for (var i = 0; i < 14; i++) {
+        // var nextEle = Ele.nextElementSibling;
+        Ele[i].checked = false;
+        // var Ele = nextEle;
+      }
+    }
+
+    if (arr[count - 2] == arr[count - 1] && !flag) {
+      alert("앞 시간을 먼저 선택해주세요.");
+      count = 0;
+      var Ele = document.getElementsByName("chk");
+      for (var i = 0; i < 14; i++) {
+        // var nextEle = Ele.nextElementSibling;
+        Ele[i].checked = false;
+        // var Ele = nextEle;
+      }
+    } else if (count % 2 == 0 && !flag) {
+      for (var time in rsvinfo[date]) {
+        var st = Number(rsvinfo[date][time][0]);
+        var ed = Number(rsvinfo[date][time][1]);
+        
+
+        if (arr[count - 2] <= st && ed <= arr[count - 1]) {
+          // console.log("예약된 곳 포함 금지");
+
+          alert("예약된 곳을 포함하셨습니다. 다시 선택해주세요.");
+          count = 0;
+          var Ele = document.getElementsByName("chk");
+          Ele[0].checked = false;
+          for (var i = 0; i < 14; i++) {
+            // var nextEle = Ele.nextElementSibling;
+            Ele[i].checked = false;
+            // var Ele = nextEle;
+          }
+        }
+      }
+      var Ele = document.getElementsByName("chk");
+      for (var i = arr[count - 2] - 8; i <= arr[count - 1] - 8; i ++){
+        Ele[i].checked = true;
+      }  
+    }
+  }
+
+  function chkDate() {
+    $('#datePicker').data('DateTimePicker').clear();
+    $('#datePicker').datetimepicker().data('DateTimePicker').date(new Date());
+    // console.log($('#datePicker').data('date'));
+    count = 0;
+    var Ele = document.getElementsByName("chk");
+    Ele[0].disabled = false;
+
+    for (var i = 1; i < 14; i++) {
+      // var nextEle = Ele.nextElementSibling;
+      // console.log(Ele[i]);
+      Ele[i].disabled = false;
+      // var Ele = nextEle;
+    }
+
+    var dt = new Date();
+    var Year = dt.getFullYear();
+    var Month = "" + (dt.getMonth() + 1);
+    var Day = "" + dt.getDate();
+
+    if (Month.length < 2) Month = "-0" + Month;
+    else if (Month.length >= 2) Month = "-" + Month;
+
+    if (Day.length < 2) Day = "-0" + Day;
+    else if (Day.length >= 2) Day = "-" + Day;
+
+    date = Year.toString() + Month + Day;
+    console.log(date);
+
+    for (var time in rsvinfo[date]) {
+      var st = Number(rsvinfo[date][time][0]) - 8;
+      var ed = Number(rsvinfo[date][time][1]) - 8;
+      var Ele = document.getElementsByName("chk");
+
+      for (var i = st; i <= ed; i++) {
+        Ele[i].disabled = true;
+      }
+    }
+  }
+
+  window.onload = function () {
+    chkDate();
+  };
+
+  window.onpageshow = function (){
+    chkDate();
+  };
+</script>

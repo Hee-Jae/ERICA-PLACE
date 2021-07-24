@@ -1,0 +1,118 @@
+<script>
+  var STUDENT_ID_CHK = false;
+  var COM_NUM_CHK = false;
+
+  function chk() {
+    var formRent = document.formRent;
+    var NAME = formRent.NAME.value;
+    var COMPANY = formRent.COMPANY.value;
+    var STUDENT_ID = formRent.STUDENT_ID.value;
+    var COM_NUM = formRent.COM_NUM.value;
+    var PHONE_NUM = formRent.PHONE_NUM.value;
+    var EMAIL = formRent.EMAIL.value;
+    var MAN_NUM = formRent.MAN_NUM.value;
+    var PURPOSE = formRent.PURPOSE.value;
+    var MAIN_CONTENTS = formRent.MAIN_CONTENTS.value;
+    if (!NAME) {
+      alert("이름을 입력했는지 확인해주세요.");
+    } else if (!COMPANY) {
+      alert("소속 단체명을 입력했는지 확인해주세요.");
+    } else if (!PHONE_NUM) {
+      alert("연락처를 입력했는지 확인해주세요.");
+    } else if (!EMAIL) {
+      alert("이메일을 입력했는지 확인해주세요.");
+    } else if (MAN_NUM == "0") {
+      alert("사용 인원수를 입력했는지 확인해주세요.");
+    } else if (PURPOSE == "-") {
+      alert("사용 목적을 입력했는지 확인해주세요.");
+    } else if (STUDENT_ID_CHK == true && !STUDENT_ID) {
+      alert("학번을 입력했는지 확인해주세요.");
+    } else if (COM_NUM_CHK == true && !COM_NUM) {
+      alert("사업자번호를 입력했는지 확인해주세요.");
+    } else if(/^[가-힣]+$|^[a-zA-Z]+\s[a-zA-Z]+$/.test(NAME) == false){
+      alert("신청자 양식을 다시 확인해주세요.");
+    } else if(STUDENT_ID_CHK == true && /^\d{10}$/.test(STUDENT_ID) == false){
+      alert("학번 양식을 다시 확인해주세요.");
+    } else if(COM_NUM_CHK == true && /^\d{10}$/.test(COM_NUM) == false){
+      alert("사업자 번호 양식을 다시 확인해주세요.");
+    } else if(/^\d{11}$/.test(PHONE_NUM) == false){
+      alert("연락처 양식을 다시 확인해주세요.");
+    } else if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(EMAIL) == false){
+      alert("이메일 양식을 다시 확인해주세요.");
+    } else {
+      formRent.submit();
+    }
+    
+  }
+
+  $(function () {
+    $(document).on("change", "select[name=list]", function () {
+      var value = $(this).find("option:selected").val();
+      var data1 = $(this).closest(".selectBox").find(".data1");
+      var data2 = $(this).closest(".selectBox").find(".data2");
+      var data3 = $(this).closest(".selectBox").find(".data3");
+      var data4 = $(this).closest(".selectBox").find(".data4");
+      var data5 = $(this).closest(".selectBox").find(".data5");
+      var data6 = $(this).closest(".selectBox").find(".data6");
+      var data7 = $(this).closest(".selectBox").find(".data7");
+      var data8 = $(this).closest(".selectBox").find(".data8");
+      var data9 = $(this).closest(".selectBox").find(".data9");
+      var f1 = false,
+        f2 = false,
+        f3 = false,
+        f4 = false,
+        f5 = false,
+        f6 = false,
+        f7 = false,
+        f8 = false,
+        f9 = false;
+      if (value == 0) {
+        f1 = true;
+        f2 = true;
+        f3 = true;
+        f4 = true;
+        f5 = true;
+        f6 = true;
+        f7 = true;
+        f8 = true;
+        f9 = true;
+        $(data1).val("");
+        $(data2).val("");
+        $(data3).val("");
+        $(data4).val("");
+        $(data5).val("");
+        $(data6).val("");
+        $(data7).val("");
+        $(data8).val("");
+        $(data9).val("");
+      } else if (value == 1) {
+        f4 = true;
+        $(data4).val("");
+        STUDENT_ID_CHK = true;
+        COM_NUM_CHK = false;
+      } else if (value == 2) {
+        f3 = true;
+        f4 = true;
+        $(data3).val("");
+        $(data4).val("");
+        STUDENT_ID_CHK = false;
+        COM_NUM_CHK = false;
+      } else if (value == 3) {
+        f3 = true;
+        $(data3).val("");
+        STUDENT_ID_CHK = false;
+        COM_NUM_CHK = true;
+      }
+
+      $(data1).attr("disabled", f1);
+      $(data2).attr("disabled", f2);
+      $(data3).attr("disabled", f3);
+      $(data4).attr("disabled", f4);
+      $(data5).attr("disabled", f5);
+      $(data6).attr("disabled", f6);
+      $(data7).attr("disabled", f7);
+      $(data8).attr("disabled", f8);
+      $(data9).attr("disabled", f9);
+    });
+  });
+</script>
