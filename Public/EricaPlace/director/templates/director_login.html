@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/login.css">
+<style>
+    body{
+        margin:0;
+    }
+    /* .messages{
+        color:red;
+    } */
+</style>
+{% include 'login_js.html' %}
+{% endblock head %}
+{% block contents %}
+
+{% if user.is_authenticated %}
+    <script>
+        window.location.href="{% url 'director_status' %}";
+    </script>
+{% else %}
+    <main>
+        <div class="header">            
+            관리자 로그인
+            <div class="header-bar"></div>
+        </div>
+        <br><br>
+        <form action="{% url 'director_login' %}" method="POST">
+            {% csrf_token %}
+            <div class="cont">    
+                <div class="inputbox">
+                    <div class="verify v1"></div>
+                    <input name="username" type="text" onfocusout="verify_input('input_1')" class="input" id="input_1" placeholder="아이디">                
+                </div>
+                <div class="inputbox">
+                    <div class="verify v2"></div>
+                    <input name="password" type="password" onfocusout="verify_input('input_2')" class="input" id="input_2" placeholder="비밀번호">
+                </div>
+                <div class="under-bar">
+                    <br>
+                </div>
+                <button class="button" type="submit">
+                    <img src="/static/image/searchbutton.png">
+                    조회하기
+                </button>                        
+            </div>
+        </form>
+        
+
+        
+    </main>
+
+{% endif %}
+{% endblock contents %}
