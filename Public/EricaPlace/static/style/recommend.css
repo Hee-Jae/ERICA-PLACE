@@ -1,0 +1,152 @@
+html,body{
+    width: 100%;
+    height: 1300px;      
+    margin: 0;
+    padding: 0;
+  }
+  .a{
+    cursor: pointer;
+  }
+  
+  
+  main{
+    margin-top: 70px;
+    margin-left: 70px;
+    width: 1350px;
+    height: 90%;        
+    float: left;    
+    
+  }
+  @media screen and (min-width:1150px) and (max-width:1590px){
+    main{
+        width: 950px;
+    }
+    body{
+        height: 1500px;
+    }
+  }
+  @media screen and (max-width:1150px){
+    main{
+        width: 600px;
+    }
+    body{
+        height: 2800px;
+    }
+  }
+  footer{    
+    opacity: 0.9;
+  }
+  
+  .header{
+    font-size: 30pt;
+    font-weight: lighter;
+    color: #585858;
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+  }
+  .header-bar{
+    width: 120px;
+    height: 5px;  
+    border-bottom: 1px solid gray;  
+  }
+  
+  .cont{
+    overflow-y: scroll;
+    width: 100%;
+    height: 1000px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    margin-top: 30px;
+    margin-left: 40px; 
+    
+    /*임시방편*/
+  }
+  .card{
+    float: left;
+    margin-left: 40px;
+    padding-bottom: 40px;
+  }
+  .card-img{
+    position: relative;
+    overflow: hidden;
+  }
+  .card-img > img{
+    width: 400px;
+    height: 270px;
+    border: 1px solid rgba(68, 86, 117,0.3);
+    /* box-shadow: 0px 0px 0px 2px rgba(68, 86, 117,0.3); */
+    border-radius: 5px;
+  }
+  .card-img:hover .card-detail{
+    transition-duration: .3s;
+    transform: translateX(0px);
+    border-radius: 0;
+  }
+  .card-detail{
+    transition-duration: 0.5s;
+    position: absolute;    
+    right: 0;
+    bottom: 0;  
+    width: 130px;  
+    height: 100%;
+    background-color: rgba(255,255,255,0.8);  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20% 0 0 20% ;
+    transform: translateX(130px);
+    transition-duration: .3s;
+  }
+  
+  .goto-reserv{
+    border: 3px solid rgba(68, 86, 117,0.9);
+    border-radius: 5px;
+    height: 50px;
+    width: 70px;
+    font-weight: bold;
+    color: rgba(68, 86, 117,1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;  
+  }
+  .goto-reserv>img{
+    width: 20px;
+    filter: opacity(.5) drop-shadow(0 0 0 rgba(68, 86, 117,0.9) );
+    /* filter: invert(30%); */
+  }
+  .card-description > p {
+    margin: 0;
+  }
+  .number{
+    color: rgba(68, 86, 117,0.9);  
+    padding-bottom: 10px;
+  }
+  .card-des-top > p {
+    margin: 3px 0 0px 0;
+  }
+  .card-des-top{
+    margin: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+  }
+  .card-des-bottom{
+    display: flex;
+    justify-content: space-between;
+  }
+  .title{
+    margin: 5px 0 0px 0;
+    font-size: 20pt;
+    color: rgba(28, 46, 77, 1);
+  }
+  .facility{
+    color: rgba(68, 86, 117,0.9);
+    font-weight: lighter;
+  }
+  
