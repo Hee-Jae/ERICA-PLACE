@@ -1,0 +1,51 @@
+<script>
+let table_slide_bool = true;
+    var last_table = 0;
+    var tmpht;
+    var table_num = {{count}}+1, hidden_table_location = -(100 + 50*(table_num-6)); //백에서 글 개수가 바뀔 때마다 table_num만 조정해주면됨
+    
+    window.onload =  function(){        
+        $(".hidden_table").css("transform",`translateY(${hidden_table_location}px)`);
+    };
+    
+    function table_slide(num){ 
+        
+        // 게시글 내용 슬라이드 //            
+        for (let i=1; i<table_num; i++) {        
+            const ht = "#ht"+(i);
+            $(ht).css("visibility","hidden");
+        }          
+        ht = "#ht" + num;
+        tmpht = ht;
+        $(ht).css("visibility","visible");
+        $(ht).css("opacity","1");
+
+
+        if(last_table == num){
+            for (let i=1; i<table_num; i++) {        
+                const ht = "#ht"+(i);
+                $(ht).css("visibility","hidden");
+                $(ht).css("opacity","0");
+            }          
+            for (let i=1; i<table_num; i++) {        
+                const t = "#t"+(i+1);                
+                $(t).css("transform","translateY(0px)");                
+            }   
+            
+            last_table = 0;
+        }
+        else{
+            // $(tmpht).css("visibility","hidden");
+            // 게시글 제목 슬라이드 //
+            for (let i=1; i<table_num; i++) {        
+                const t = "#t"+(i+1);
+                $(t).css("transform","translateY(0px)");
+            }
+            for (let i=num; i<table_num; i++) {        
+                const t = "#t"+(i+1);                
+                $(t).css("transform","translateY(330px)");
+            }
+            last_table = num;
+        }                
+    }
+</script>
