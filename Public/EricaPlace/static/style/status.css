@@ -1,0 +1,427 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    height: 1300px;;
+}
+.fx{
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+header{    
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    border-radius: 10px;
+    width: 70%;
+    height: 60px;
+    background-color:#0A122A;
+    font-family: NanumGothic;    
+    font-weight: lighter;
+    font-size: 20pt;
+    color: white;
+    margin-bottom: 10px;
+}
+header > img {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+main{
+    float: left;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 85%;
+    margin-top: 100px;
+    height: 1200px;    
+    overflow-y: scroll; 
+}
+.main-cont{
+    width: 80%;
+    border: 2px solid #0A122A;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 300px;
+    position: relative;
+}
+.cont-room-info , .cont-user-info{
+    float: left;
+    width: 50%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    flex-direction: column;        
+}
+.cont-room-info{
+    color: white;
+    background-color: rgba(88, 116, 157, 0.9);
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    text-align: center;
+    height: 250px;
+    font-size: 12pt;
+    
+}
+.cont-user-info{    
+    color: white;
+    background-color: rgba(88, 116, 157, 0.9);
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    text-align: center;    
+    height: 250px;
+    font-size: 12pt;
+}
+.c-r-left,.c-u-left{
+    border-right: 1px solid white;
+}
+.c-r-right{
+    font-weight: bold;
+    font-size: 15pt;    
+}
+.c-u-left{
+    font-size: 11pt;
+}
+.c-u-right{
+    font-weight: bold;
+    font-size: 13pt;    
+}
+
+.cont-check{
+    width: 100%;
+    height: 50px;
+    background-color: #0A122A;
+    float: left;
+    color: white;
+    font-weight: bolder;
+    ;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.admit{    
+    height: 100%;           
+}
+.admit-color{
+    width: 15px;
+    height: 15px;        
+    border-radius: 100px;
+    margin-left: 10px;
+}
+.ac1{
+    background-color: orange;
+    -webkit-animation: color_change 1s infinite alternate;
+	-moz-animation: color_change 1s infinite alternate;
+	-ms-animation: color_change 1s infinite alternate;
+	-o-animation: color_change 1s infinite alternate;
+	animation: color_change 1s infinite alternate;    
+}
+@-webkit-keyframes color_change {
+	from { background-color: orange; transform: scale(.9); }
+	to { background-color: #DF7401; transform: scale(1.2);}
+}
+@-moz-keyframes color_change {
+	from { background-color: orange;transform: scale(.9); }
+	to { background-color: #DF7401; transform: scale(1.2);}
+}
+@-ms-keyframes color_change {
+	from { background-color: orange; transform: scale(.9);}
+	to { background-color: #DF7401; transform: scale(1.2);}
+}
+@-o-keyframes color_change {
+	from { background-color: orange; transform: scale(.9);}
+	to { background-color: #DF7401; transform: scale(1.2);}
+}
+@keyframes color_change {
+	from { background-color: orange;transform: scale(.9); }
+	to { background-color: #DF7401; transform: scale(1.2);}
+}
+.ac2{
+    background-color: greenyellow;    
+    -webkit-animation: color_change2 1s infinite alternate;
+	-moz-animation: color_change2 1s infinite alternate;
+	-ms-animation: color_change2 1s infinite alternate;
+	-o-animation: color_change2 1s infinite alternate;
+	animation: color_change2 1s infinite alternate;    
+}
+@-webkit-keyframes color_change2 {
+	from { background-color: greenyellow; transform: scale(.9);}
+	to { background-color: #3ADF00; transform: scale(1.2);}
+}
+@-moz-keyframes color_change2 {
+	from { background-color: greenyellow; transform: scale(.9);}
+	to { background-color: #3ADF00; transform: scale(1.2);}
+}
+@-ms-keyframes color_change2 {
+	from { background-color: greenyellow; transform: scale(.9);}
+	to { background-color: #3ADF00; transform: scale(1.2);}
+}
+@-o-keyframes color_change2 {
+	from { background-color: greenyellow; transform: scale(.9);}
+	to { background-color: #3ADF00; transform: scale(1.2);}
+}
+@keyframes color_change2 {
+	from { background-color: greenyellow; transform: scale(.9);}
+	to { background-color: #3ADF00; transform: scale(1.2);}
+}
+.ac3{
+    background-color: #CD2929;    
+    -webkit-animation: color_change3 1s infinite alternate;
+	-moz-animation: color_change3 1s infinite alternate;
+	-ms-animation: color_change3 1s infinite alternate;
+	-o-animation: color_change3 1s infinite alternate;
+	animation: color_change3 1s infinite alternate;    
+}
+@-webkit-keyframes color_change3 {
+	from { background-color: #CD2929; transform: scale(.9);}
+	to { background-color: #FD0202; transform: scale(1.2);}
+}
+@-moz-keyframes color_change3 {
+	from { background-color: #CD2929; transform: scale(.9);}
+	to { background-color: #FD0202; transform: scale(1.2);}
+}
+@-ms-keyframes color_change3 {
+	from { background-color: #CD2929; transform: scale(.9);}
+	to { background-color: #FD0202; transform: scale(1.2);}
+}
+@-o-keyframes color_change3 {
+	from { background-color: #CD2929; transform: scale(.9);}
+	to { background-color: #FD0202; transform: scale(1.2);}
+}
+@keyframes color_change3 {
+	from { background-color: #CD2929; transform: scale(.9);}
+	to { background-color: #FD0202; transform: scale(1.2);}
+}
+.button_cancle{    
+    padding: 5px;
+    border-radius: 2px;
+    margin-left: 25px;
+}
+#but_confirm{
+    border: 1px solid #3ADF00;        
+}
+#but_cancle{
+    border: 1px solid yellow;    
+}
+#but_reject{
+    border: 1px solid #FD0202;    
+}
+nav{
+    height: 100%;
+}
+.nav-search, .nav-recommend{
+    height: 1230px;
+}
+.totalmenu {
+    height: 1300px;    
+}
+
+
+
+/* for director_status.html */
+/* .form-check > label > input{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+} */
+.form-check{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+.form-check> form>*{
+    float: left;
+    margin-right: 10px;
+}
+.form-check> form>p{
+    margin-top: 6px;
+    margin-left: -5px;
+    margin-right: 5px;
+}
+.form-check>*{
+    float: left;
+}
+.confirm{
+    border: 3px solid #0A122A;
+    border-radius: 5px;
+    background-color: rgba(10,18,42,0.8);
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+    height: 30px;
+}
+.veiw_all{
+    border: 3px solid #0A122A;
+    border-radius: 5px;
+    background-color: rgba(10,18,42,0.6);
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+    height: 30px;
+    margin-left: -2px;
+}
+.opt-college{
+    height: 30px;    
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(10,18,42,0.8);
+    color: white;
+    text-align-last: center;
+    border: 3px solid rgba(10,18,42,0.8);    
+}
+
+
+.input-date{
+    width: 150px;
+    height: 25px;
+    border: 3px solid rgba(10,18,42,0.8);    
+    border-radius: 5px;
+    box-shadow: none;
+}
+.form-chk-label{
+    width: 250px;
+    height: 25px;
+    border: 3px solid rgba(10,18,42,0.8);    
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.form-chk-label > label {
+    font-size: 11pt;
+}
+
+.form-page{
+    margin-top: 10px;
+    /* border-right: 1px solid gray;
+    border-left: 1px solid gray; */
+}
+.form-page>form>input{
+    border: none;
+    background-color: white;
+    color: rgba(88, 116, 157, 1);
+}
+.form-page>a , .form-page>form{
+    float: left;
+}
+.form-page>a ,.form-page>button {
+    border: none;
+    background-color: white;
+    list-style: none;
+    color: rgba(88, 116, 157, 1);
+    height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* border-left: 1px solid gray; */
+}
+.direction{
+    width: 15px;    
+}
+.direction > img {
+    width: 15px;
+    filter: invert(40%);
+}
+#dir-last{    
+    margin-top: -1px;
+    margin-right: 10px;
+}
+
+
+
+/* for nav */
+.menu_5 {
+    background-color: white;      
+}
+.menu_5 > .menu_a{
+    font-weight: bold;
+    color: rgb(68, 86, 117);
+    box-shadow: 0px 0px 5px  rgba(68, 86, 117,0.5) inset;   
+}
+
+
+
+/* for email popup box */
+.form-popup {
+    width: 40%;
+    height: 90%;
+    display: none;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    overflow: hidden;
+    text-align: center;
+    background-color: white;
+    color: black;
+    opacity: 0.93;
+  }
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  height: 100%;
+  background-color: white;
+  color: black;
+}
+.form-container > form > input:focus , .form-container > form > button:focus{
+    outline: none;
+}
+.form-container-head{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.form-container input[type=text], .form-container input {
+  width: 70%;
+  padding: 16px 20px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  text-align: center;
+}
+/* .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}  */
+
+.form-container .btn {
+    min-width: 200px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    font-weight: bold;
+    font-size: 20px;
+}
+.form-container .cancel {
+  background-color: red;
+}
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+@media screen and (min-width:0px) and (max-width:870px){
+    main{
+        width: 80%;
+    }    
+}
