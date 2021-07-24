@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/style/main.css">
+{% include 'main_js.html' %}
+{% endblock head %}
+
+{% block contents %}
+    <main>
+        {% if messages %}
+            <span class="messages">
+                <script>
+                {% for message in messages %}
+                    alert('{{message}}');
+                {% endfor %}
+                </script>
+            </span>
+        {% endif %}
+
+
+        <div class="maincont">
+            <div class="card-section">
+                <div class="slide">
+                    <img src="{{rooms.0.photo.url}}" width="400" class="card" id="card1">
+                </div>
+                        <div class="leftbutton a" onclick="slide_left()">
+                            <img src="/static/image/but_left.png" class="card-button-img" >
+                        </div>
+                        <div class="rightbutton a" onclick="slide_right()">
+                            <img src="/static/image/but_right.png" class="card-button-img">
+                        </div>
+                <div class="card-text">
+                    <span style="display: inline-block;">
+                    <p id="card-text-p-description">{{rooms.0.name}} </p>
+                    </span>
+                    <p id="card-text-p-name">{{rooms.0.subname}}</p>                    
+                    
+                </div>       
+                <div class="card-reserv-button a" onClick="reservation()">
+                    대관하기
+                    <img src="/static/image/next.png" class="a">
+                </div>
+            </div>                        
+        </div>
+                        
+    </main>
+    <div class="middle">                 
+        <a href="{% url 'useGuide' %}#3"><div class="middle-img-box a">
+            <img src="/static/image/middle1.png" class="middle-img">
+            <div class="middle-img-box-p">CAMPUS MAP</div>
+        </div></a>
+        <div class="middle-img-box a" >
+            <a href="https://portal.hanyang.ac.kr/sso/lgin.do">
+                <div class="middle-img-box a">
+                    <img src="/static/image/middle2.png" class="middle-img">    
+                    <div class="middle-img-box-p">HANYANG PORTAL</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endblock %}
+
