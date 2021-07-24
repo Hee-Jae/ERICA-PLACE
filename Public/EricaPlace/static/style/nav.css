@@ -1,0 +1,445 @@
+/*좌측 바*/
+body{
+  margin: 0;
+  overflow-x: hidden;
+  font-family: NanumGothic;
+}
+.hoverscale{
+  transition-duration: 0.2s;
+  transform: scale(1);
+}
+.hoverscale:hover{
+  transition-duration: 0.2s;
+  transform: scale(1.05);
+}
+a{  
+  text-decoration: none;
+}
+.a{
+  cursor: pointer;
+}
+
+nav{    
+  float: left;
+  width: 130px;
+  height: 100%;
+  /* background-color: blue; */
+  /* border-right: 1px solid black; */
+  /* z-index: -1; */
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.leftsection{
+  margin-top: 70px;
+  width: 100%;    
+  height: 100%; /*!!?!?!?!?!?*/
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  /* height: 1200px; */    
+}
+#logo{
+  width: 120px;     
+  margin-left: 10px;      
+  margin-top: 10px;    
+}
+
+
+
+.menubar{
+  width: 50px;
+  border-bottom: 0.1px solid white;    
+  margin-top: 15px;
+}
+.menu{    
+  padding-top: 50px;
+  width: 100%;
+  height: 100%;   
+  /* background-color: rgb(68, 86, 117);       */  
+  background:  linear-gradient( to bottom,  rgb(68, 86, 117) 60%, rgba(68, 86, 117,0.3) );
+}
+.left_menu_button{
+  height: 60px;  
+  /* border-bottom: 1px solid white; */
+  /* background-color: rgb(78, 96, 127); */  
+}
+.menu_a{
+  position: inherit;
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+  transition-duration: .4s;
+}
+.menu_a:hover{
+  transition-duration: .4s;
+  background-color: rgba(168, 186, 217,0.3);
+}
+/* .menu_hover{
+  position: absolute;
+  z-index: 0;
+  left: 130px;
+  width: 100px;
+  height: 400px;
+  background-color: red;
+} */
+
+.lionlogo{
+  overflow: hidden;
+}
+.lionlogo > img{
+  width: 400px;
+  /* filter: invert(30%); */
+  opacity: 0.2;  
+  position: absolute;
+  left: -100px;
+  top: 420px;
+}
+
+
+
+
+
+.nav-right{
+  /* right: 0; */
+  position: absolute;    
+  /* position: absolute; */    
+  /* margin-top: 50px; */
+  z-index: 1;
+  width: 100%;    
+  height: 70px;    
+  /* box-shadow: -2px 0px 4px 0px #BDBDBD;         */
+  border-bottom: 1px solid #E6E6E6;
+}
+.left-icon , .right-icon{
+  width: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  opacity: 1;
+  filter: opacity(.9) drop-shadow(0 0 0 #5882FA);
+}
+.left-icon{
+  filter:none;
+}
+.nav-right-top{
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  float: right;    
+  /* width: 385px; */
+  height: 100%;
+  padding: 0;    
+  margin-right: -7px;    
+}
+.nav-right-top-back{
+  display: inline-block;
+  float: left;
+  width: 75px;
+  height: 70px;
+  text-align: center;
+  padding: 0;    
+  margin: 0;        
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.nav-right-top-back > img , .nav-right-top-back > a > img{    
+  width: 35px;
+  height: 35px;
+  margin-top: 15px; /*임시방편 */
+}
+
+.nav-search{ 
+  /* z-index: 1; */
+  position: absolute;
+  right: 0; 
+  top: 70px;
+  height: 1230px;    
+  width: 250px;
+  background-color: white;    
+  transition-duration: .4s;
+  box-shadow: -10px 20px 20px -10px gray;      
+  transform: translateX(260px);      
+}
+/* .nav-s-result{
+  background-color: gray;
+  height: 100%;
+} */
+.nav-s-cont{
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  /* margin-top: 20px; */
+}
+.nav-s-inputbox{
+  border: 1px solid rgba(68, 86, 117,0.4);
+  background-color: rgb(68, 86, 117);
+  /* border-radius: 10px; */
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;    
+  /* color: rgba(8,41,138,1); */
+  color:  white;    
+  transition-duration: .5s;
+}
+
+.nav-s-inputbox > select{
+  border: none;
+  border: 3px solid white; 
+  background-color: rgba(68, 86, 117,0.8);   
+  color: white;
+  width: 120px;
+  height: 30px;
+  text-align: center;
+  outline: none;
+  font-size: 15pt;
+  font-family: NanumGothic;
+  margin-top: 8px;
+}
+
+.nav-s-bar{
+  margin-top: 10px;
+  width: 70%;
+  border-top:  1px solid rgb(68, 100, 117);
+}
+.nav-s-r-cont{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.nav-s-img {
+  margin-top: 10px;
+  position: relative;
+  overflow-x: hidden;
+  transition-duration: .2s;
+}
+.nav-s-p-cont{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+.nav-s-p{  
+  color:  rgb(68, 100, 117);
+  width: 70%;
+  top: 31%;
+  left: 13%;
+  font-size: 20pt;    
+  border: 4px solid  rgb(68, 100, 117);
+  padding: 5px;
+  text-align: center;
+}
+.nav-s-img > img{
+  width:200px;
+  height: 130px;    
+  border-radius: 10px;
+}
+.nav-s-img:hover{
+  transition-duration: .2s;
+  transform: scale(1.02);
+}
+.nav-s-img:hover > img{
+  opacity: 0.4;
+}
+.nav-s-img:hover > .nav-s-p-cont{
+  visibility: visible;
+}
+.cont1, .cont2, .cont3, .cont4, .cont5, .cont6{
+  display: none;
+}
+.nav-s-more{
+  margin-top: 10px;
+  width: 200px;
+  height: 50px;
+  background-color: rgba(68, 100, 117,0.7);
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-recommend{
+  /* z-index: 2; */
+  position: absolute;
+  right: 0; 
+  top: 70px;
+  /* bottom: -426px;
+  height: 1270px;     */
+  height: 1230px;
+  width: 350px;
+  background-color: white;    
+  transition-duration: .4s;
+  box-shadow: -10px 20px 20px -10px gray;      
+  transform: translateX(360px);      
+}
+.nav-r-inputbox{
+  border: 1px solid rgba(68, 86, 117,0.4);
+  background-color: rgb(68, 86, 117);
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100px;      
+  color:  white;    
+  
+}
+.nav-r-select{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-r-sel-box{
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+  width: 300px;
+  height: 150px;
+  background-color: rgba(11,33,97,0.6);  
+  border: 1px solid white;  
+  border-radius: 5px;
+  /* color: rgb(68, 86, 117);   */
+  color: white;
+  text-align: center;
+  font-size: 18pt;
+  font-weight: lighter;
+  transition-duration: .3s;
+}
+.nav-r-sel-box:hover{
+  transition-duration: .2s;
+  transform: scale(1.02);
+  filter: brightness(130%);
+}
+.imgbox{
+  width: 300px;
+  height: 110px;
+  overflow: hidden;  
+}
+.imgbox>img{
+  width: 300px;
+}
+._blank{
+  margin-top: 5px;
+}
+
+
+
+
+
+
+
+/*하단 바*/
+footer{  
+  float: right;    
+  width: 100%;    
+  height: 100px;
+  background-color: #0A122A;
+  opacity: 0.9;
+}
+
+.bottom-section-link{
+  width: 800px;
+  /* margin-top: 40px; */
+  margin-left: 170px;
+  float: left;  
+}
+
+.bottom-section-p{
+  position: relative;  
+  margin-top: 40px;  
+}
+
+#locale,#copyright{
+  position: absolute;
+  right: 20px;    
+  font-size: 9pt;
+  color: #E6E6E6;
+  font-family: KoreanAGDL;
+  margin: -2px;
+}
+#copyright{
+  bottom:-25px;
+}
+
+.bottom-section-link a{
+  color:#E6E6E6;
+  margin: 10px;
+  font-weight: lighter;
+}
+/* 메뉴 */
+.totalmenu{
+  position: absolute;
+  width: 100%;
+  height: 1300px;
+  background-color: black;
+  opacity: 0.9;
+  z-index: 1000;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+}
+.totalmenu-close{
+  width: 50px;
+  filter: invert(100%);
+  margin: 50px;
+  margin-bottom: 100px;
+}
+.totalmenu-cont-li{
+  color: white;    
+  width: 800px;
+  border-bottom: 2px solid #D8CEF6;
+  padding-bottom: 10px;
+  margin-bottom: 40px;
+  height: 150px;  
+}
+.li-left , .li-right{
+  float: left;
+  margin: 0;
+  font-family: NanumGothic;
+}
+.totalmenu-cont-li > .li-left{
+  color: #A9A9F5;
+  font-weight: bold;
+  font-size: 20pt;
+  margin-top: 20px;
+}
+.totalmenu-cont-li > .li-right{
+  color: white;
+  margin-left: 50px;
+  font-size: 10pt;
+}
+.li-right > li{
+  margin-top: 10px;
+}
+.right-fraction{
+  display: grid;
+  grid-template-columns:  150px 150px 150px;    
+}
+.right-fraction>li{
+  text-align: left;
+}
+
+li, ul{
+  list-style: none;
+}
