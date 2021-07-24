@@ -1,0 +1,16 @@
+<div class="form-popup" id="myForm{{ rsv.id }}Type1">
+  <div class="form-container">
+    <form action="{% url 'rsv_admit' rsv.id 1 %}">
+        <div class="form-container-head">승인 하시겠습니까?</div>
+        <input type="hidden" name="pagelist" value="{{ pagelists.number }}">
+        <input type="hidden" name="page" value="{{ posts.number }}">
+        <input type="hidden" name="college" value="{{ search_status.college }}">
+        <input type="hidden" name="admit" value="{{ search_status.admit }}">
+        <input type="hidden" name="start_date" value="{{ search_status.start_date }}">
+        <input type="hidden" name="end_date" value="{{ search_status.end_date }}">
+        <input type="submit" value="승 인" class="btn"
+      onclick="this.disabled=true;this.value='승인중';this.form.submit();"/>
+        <button type="button" class="btn cancel" onclick="closeForm({{ rsv.id }}, 1)">Close</button>
+    </form>
+  </div>
+</div> 

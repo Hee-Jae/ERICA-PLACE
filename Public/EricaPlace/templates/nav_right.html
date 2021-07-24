@@ -1,0 +1,31 @@
+{% load static %}
+<div class="nav-right">
+    <a href="{% url 'main' %}"><img src="/static/image/logo.png" id="logo"></a>
+    <div class="nav-right-top">
+        {% if user.is_authenticated %}
+        <div class="nav-right-top-back">
+            <div class="nav-right-top-iconwrapping">
+                <a href="{% url 'director_logout' %}" ><img class="right-icon a hoverscale" src="/static/image/close_label.png"></a>
+            </div>
+        </div>
+        {% endif %}
+        <div class="nav-right-top-back">
+            <div class="nav-right-top-iconwrapping">
+                <img class="right-icon a hoverscale" id="recommendicon" src="/static/image/star_label.png" onclick="nav_manage(1)">            
+            </div>
+        </div>                    
+        <div class="nav-right-top-back">
+            <div class="nav-right-top-iconwrapping">
+                <a href="{% url 'status' %}" ><img class="right-icon a hoverscale" src="/static/image/mypage_label.png"></a>
+            </div>
+        </div>        
+        <div class="nav-right-top-back" >
+            <div class="nav-right-top-iconwrapping">
+                <img class="right-icon a hoverscale" id="searchicon" src="/static/image/search_label.png" onclick="nav_manage(2)">
+            </div>                
+        </div>
+        <div class="nav-right-top-back a" style="background-color: #0A122A;" onclick="menupopup(true)">
+            <img class="right-icon hoverscale" src="/static/image/menu.png" style="filter: invert(100%);">                
+        </div>                                    
+    </div>    
+</div>

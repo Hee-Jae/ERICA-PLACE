@@ -1,0 +1,40 @@
+<nav>
+  <div class="leftsection">
+
+      {% load static %}
+      <div class="menu">
+          <div class="menu_1 left_menu_button">
+              <a href="{% url 'useGuide' %}" class="menu_a">대관소개</a>
+              <!-- <div class="menu_hover">
+                  asdasd
+              </div> -->
+              <!-- <div class="menubar"></div> -->
+          </div>
+          
+          <div class="menu_2 left_menu_button">
+              <a href="{% url 'mainplace' %}" class="menu_a">주요공간</a>
+              <!-- <div class="menubar"></div> -->
+          </div>
+          
+          <div class="menu_3 left_menu_button">
+            <a href="{% url 'building' %}" class="menu_a">건물별안내</a>
+              <!-- <div class="menubar"></div> -->
+          </div>
+          
+          <div class="menu_4 left_menu_button">
+              <a href="{% url 'faq' %}" class="menu_a">FAQ</a></div>
+          <div class="lionlogo">
+              <img src="/static/image/lionlogo.png">
+          </div>
+
+
+          {% if user.is_authenticated %}
+            <div class="menu_5 left_menu_button">
+                <a href="{% url 'modify' %}" class="menu_a"> 설정하기 </a></div>
+            <div class="lionlogo">
+                <img src="/static/image/lionlogo.png">
+            </div>
+          {% endif %}
+      </div>
+  </div>
+</nav>

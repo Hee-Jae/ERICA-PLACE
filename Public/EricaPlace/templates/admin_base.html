@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+{% if user.is_authenticated %}
+<head>
+  <meta charset="utf-8">
+  <title>한양대학교 대관</title>
+  <link rel="stylesheet" href="/static/style/nav.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="/static/image/favicon.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  {% include 'nav_js.html' %}  
+  {% block head %}
+  {% endblock head %}
+</head>
+
+<body>
+  {% include 'nav_right.html' %}
+  {% include 'totalmenu.html' %}
+  {% include 'nav.html' %}
+  {%block contents%}
+  {%endblock%}
+  {% include 'nav_search.html' %}
+  {% include 'footer.html' %}
+</body>
+{% else %}
+  <script>
+    alert("로그인이 필요한 페이지 입니다.");
+    window.location.href = "{% url 'director_login' %}";
+  </script>
+{% endif %}

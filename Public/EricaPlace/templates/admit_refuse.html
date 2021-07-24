@@ -1,0 +1,18 @@
+<div class="form-popup" id="myForm{{ rsv.id }}Type2">
+  <div class="form-container">
+    <form action="{% url 'rsv_admit' rsv.id 2 %}">
+      <div class="form-container-head">거부 사유</div>
+        거부 사유가 메일로 전송됩니다.
+        <input type="hidden" name="pagelist" value="{{ pagelists.number }}">
+        <input type="hidden" name="page" value="{{ posts.number }}">
+        <input type="hidden" name="college" value="{{ search_status.college }}">
+        <input type="hidden" name="admit" value="{{ search_status.admit }}">
+        <input type="hidden" name="start_date" value="{{ search_status.start_date }}">
+        <input type="hidden" name="end_date" value="{{ search_status.end_date }}">
+      <input type="text" placeholder="내용을 작성하세요" name="message" required>
+      <input type="submit" value="메일 전송" class="btn"
+      onclick="this.disabled=true;this.value='전송중';this.form.submit();"/>
+      <button type="button" class="btn cancel" onclick="closeForm({{ rsv.id }},2)">Close</button>
+    </form>
+  </div>
+</div>

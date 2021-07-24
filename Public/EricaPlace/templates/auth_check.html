@@ -1,0 +1,12 @@
+<div class="form-popup" id="myForm{{ rsv.id }}">
+    <div class="form-container">
+      <form action="{% url 'remove' rsv.id %}" method="POST">
+        {% csrf_token %}
+        <div class="form-container-head">인증번호 입력</div>
+        신청 시 발송된 이메일에 있는 인증코드를 입력해주세요
+        <input type="text" placeholder="인증번호를 입력하세요" name="code" required>
+        <input type="submit" value="확인" class="btn" onclick="this.disabled=true;this.value='처리중';this.form.submit();"/>
+        <button type="button" class="btn cancel" onclick="authCloseForm({{ rsv.id }})">Close</button>
+      </form>
+    </div>
+  </div>
