@@ -1,0 +1,75 @@
+{% extends 'admin_base.html' %}
+{% block head %}
+  <link rel="stylesheet" href="/static/style/update_room.css">
+{% endblock head %}
+
+{% block contents %}
+<main>
+  <form class="ur-form" enctype="multipart/form-data" action="{% url 'update_room' room.id %}" method="POST">
+      {% csrf_token %}      
+      <img id="img_section" src = "{{ room.photo.url }}" width="500px" height="400px">
+
+      <div class="fr-cont">
+        <div class="fr-cont-in">
+          <div class="in-left">
+            <label for="college">소속 단과대학</label>        
+          </div>
+          <select name="college">
+            {% for col in colleges.all %}
+              {% if col.id == college%}
+              <option value="{{col.id}}" selected>{{col.name}}</option>
+              {% else %}
+                <option value="{{col.id}}">{{col.name}}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+        <div class="fr-cont-in">
+          <div class="in-left">건물명</div> 
+          <input type="text" name="building" value="{{building.name}}" disabled>  
+        </div>
+        <div class="fr-cont-in">
+          <div class="in-left">위치</div>
+          <input type="text" name="name" value="{{room.name}}">  
+        </div>
+        <div class="fr-cont-in">
+          <div class="in-left">이름</div>
+          <input type="text" name="subname" value="{{room.subname}}">
+        </div>
+        <div class="fr-cont-in">
+          <div class="in-left">수용인원</div>
+           <input type="number" name = "capacity" value="{{room.capacity}}">
+        </div>  
+        <div class="fr-cont-in">
+          <div class="in-left">기자재</div>
+          <input type="text" name="equipment" value="{{room.equipment}}">
+        </div>                     
+        <div class="fr-cont-in">
+          <div class="in-left">사진</div>
+          <div class="filebox">
+            <label for="imgInput" >업로드</label>
+            <input id="imgInput" type="file" name="photo" accept=".jpg, .jpeg, .png">        
+          </div>
+        </div>           
+        <div class="fr-cont-in">
+          <button class="confirm a" type="submit" class="a btn btn-primary" > 수정하기 </button>
+        </div>
+      </div>      
+  </form>
+  <button class="del a" onClick="location.href = '{% url 'delete_room' room.id %}' ">삭제</button>
+</main>
+<script>    
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $("#img_section").attr("src", e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#imgInput").change(function () {    
+    readURL(this);    
+  });
+</script>
+{% endblock contents %}
