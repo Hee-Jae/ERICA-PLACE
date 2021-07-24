@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/mainplace.css">
+{% include 'main_js.html' %}
+{% endblock head %}
+
+{% block contents %}
+  <main>
+    <div class="header">
+      주요공간안내
+      <div class="header-bar"></div>
+    </div>
+    <div class="cont">
+
+      {% for room in rooms %}
+
+      <div class="card">
+        <div class="card-img"  onClick= "location.href = '{% url 'rsv' room.id %}' ">
+          <img src="{{ room.photo.url }}" />
+          <div class="card-detail">            
+            <div class="goto-reserv a" onClick= "location.href = '{% url 'rsv' room.id %}' ">
+              대관하기
+              <img src="{% static 'image/next.png' %}" class="a" />
+            </div>
+          </div>
+        </div>
+        <div class="card-description">
+          <div class="card-des-top">
+            <p class="number">{{ room.name }}</p>
+            <p class="facility">{{ room.capacity }}석</p>
+          </div>
+          <p class="title">{{ room.subname }}</p>
+        </div>
+      </div> 
+      {% endfor %}
+
+    </div>
+  </main>
+
+{% endblock %}
