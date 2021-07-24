@@ -1,0 +1,239 @@
+html,body{
+  width: 100%;    
+}
+body{
+  height: 1300px;
+}
+main{
+  margin-top: 70px;    
+  width: 90%;
+  height: 1000px;    
+  float: left;
+}
+.header{
+  font-size: 30pt;
+  font-weight: lighter;
+  color: #585858;
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header-bar{
+  position: relative;
+  width:70%;
+  height: 5px;
+  border-bottom: 1px solid gray;
+  margin :10px;
+}
+.table_css {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+.but_create{
+  position: absolute;
+  right: 15%;
+  width: 90px;
+  height: 40px;
+  
+  font-size: 15pt;    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:rgb(68, 86, 117);
+  color: white;
+  border: 2px solid rgb(56, 61, 70);
+  border-radius: 5px;
+}
+
+.table_title{
+  background-color: #FAFAFA;
+}
+
+td{
+  padding: 5px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+a{  
+    text-decoration: none;
+    color: rgb(68, 86, 117);
+}
+
+.create_question_form{
+  width: 70%;
+  margin-left: 20px;
+}
+
+.create_question_title{
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.create_question_title input{
+  border: none;
+  border-bottom: 2px solid rgb(68, 86, 117);
+  font-size: large;
+  width: 311px;
+}
+
+.create_question_title input::-webkit-input-placeholder{
+  text-align: center;
+}
+
+.create_question_content{
+  display: block;
+}
+
+.create_question_content textarea{
+  border: none;
+  border-bottom: 2px solid rgb(68, 86, 117);
+  resize: none;
+  height: 100px;
+  font-size: large;
+}
+
+.create_question_content textarea::-webkit-input-placeholder{
+  text-align: center;
+  line-height: 100px;
+}
+
+.cr_main{
+  float: left;
+  width: 85%;
+  height: 800px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.cr_form{
+  width: 650px;
+  height: 350px;    
+  border: 1px solid rgb(68, 86, 117);
+  border-radius: 5px;
+}
+
+
+
+/* for update_question.html */
+.uq-main{
+    width: 85%;
+    height: 700px;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.uq-main>form{
+    width: 500px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.fx{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fr-title{    
+    width: 400px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(10,18,42,1);
+    border-radius: 5px;
+}
+.fr-title > span{
+    width: 60px;
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(10,18,42,1);
+}
+.fr-title > input{
+    border: none;
+    font-family: NanumGothic;
+    width: 350px;
+    height: 30px;
+    text-align: center;
+    font-size: 13pt;
+    /* border: 3px solid rgba(10,18,42,1); */
+}
+.fr-content{
+    width: 400px;
+    border: 2px solid rgba(10,18,42,1);
+    border-radius: 5px;
+}
+.fr-content > textarea{
+    border: none;
+    text-align-last: center;
+    font-family: NanumGothic;
+    width: 350px;
+    height: 200px;
+}
+.fr-content > span{
+    width: 60px;
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(10,18,42,1);
+}
+.but-confirm{
+    margin-top: 15px;
+    height: 60px;
+    width: 400px;
+    background-color: #0B0B3B;
+    color: white;
+    border: none;
+    font-size: 14pt;
+}
+.but-del{    
+    margin-top: -25px;
+    width: 400px;
+    background-color: #D73939;
+    color: white;
+    border: none;
+    height: 60px;
+    font-size: 14pt;
+}
+input:focus , textarea:focus{
+    outline: none;
+}
+
+/* for nav */
+.menu_5 {
+    background-color: white;      
+}
+.menu_5 > .menu_a{
+    font-weight: bold;
+    color: rgb(68, 86, 117);
+    box-shadow: 0px 0px 5px  rgba(68, 86, 117,0.5) inset;   
+}
+@media screen and (min-width:650px) and (max-width:1300px){
+  main{
+      width: 80%;
+  }
+  .table_css{
+      font-size: 10pt;
+  }
+}
+@media screen and (min-width:0px) and (max-width:650px){
+  main{
+      width: 70%;
+  }
+  .table_css{
+      font-size: 10pt;
+  }
+}
