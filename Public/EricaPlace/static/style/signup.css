@@ -1,0 +1,126 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.a{
+    cursor: pointer;
+}
+.maincont{
+    width: 600px;
+    height: 550px;
+    /* border: 1px solid black; */
+    border-radius: 4px;
+    box-shadow: 5px 10px 10px 5px rgba(0, 0, 0,0.2);
+    /* transform: rotateY(20deg);    */
+}
+.topper{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    text-align: center;
+    font-size: 30pt;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+.inputbox{
+    width: 100%;
+    height: 60%;
+    /* background-color: yellowgreen; */
+    text-align: center;
+    
+}
+.inputbox-stair{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.verify{
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    border: 3px solid #0B2161;
+    margin-top: 10px;
+    margin-right: 10px;
+    transition-duration: 0.5s;
+}
+input{
+    width: 300px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    background-color:#F2F2F2;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    text-align: center;
+    font-weight: lighter;
+    /* color : gray */
+    outline: 0;
+    ime-mode: disabled;
+}
+/* select{
+    -webkit-appearance: none;
+    appearance: none;
+} */
+form{
+    margin-top: 10px;
+}
+select {
+    font-family: "Noto Sansf KR", sans-serif;
+    font-size: 10pt;
+    font-weight: 400;
+    line-height: 1.5;
+
+    color: #444;
+    background-color: #F2F2F2;
+
+    padding: 10px 5px 5px 10px;
+    
+
+    /* border: 1px dotted #aaa; */
+    border: none;
+    text-align-last: center;
+    border-radius: 10px;
+ 
+}
+
+
+.footer{
+    width: 100%;
+    height:  30%;
+    background-color: #0B2161;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.button_submit{
+    border: none;
+    background-color: white;
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    outline: 0;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0,0.1);
+    transition-duration: 0.4s;
+}
+.button_submit:hover{
+    transition-duration: 0.4s;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0,0.3);   
+    font-size: 11pt;
+}
+.signup{
+    border-top: 1px solid white;
+    padding-top: 10px;
+    margin-top: 15px;
+    text-decoration: none;
+    color: white;
+}
+.signup:visited{
+    text-decoration: none;
+}
