@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/style/faq.css">
+{% include 'faq_js.html' %}
+{% endblock head %}
+
+{% block contents %}
+  
+  <main>
+    <div class="header">
+        FAQ
+        <div class="header-bar"></div>
+    </div>
+    <table class="table_css">
+        <thead>
+            <tr>
+                <th class="th_number">번호</th>
+                <th>제목</th>
+                <th class="th_writer">작성자</th>
+                <th>날짜</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for faq,index in faqs.items %}
+            <tr class="a table_title" id="t{{ index }}" onclick="table_slide( {{ index }} )">
+                <td>{{ index }}</td>
+                <td>{{ faq.title }}</td>
+                <td>{{ faq.writer }}</td>
+                <td>{{ faq.date|date:"Y.m.d" }}</td>
+            
+            </tr>
+            {% endfor %}
+            {% for faq,index in faqs.items %}
+            <tr class="hidden_table" id="ht{{ index }}" style="height: 50px;">
+                <td></td>
+                <td>{{ faq.content|linebreaks|urlize }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </main>
+
+{% endblock contents %}
