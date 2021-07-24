@@ -1,0 +1,109 @@
+html,body{
+    width: 100%;
+    height: 100%;    
+}
+body{
+    height: 1200px;
+}
+.a{
+    cursor: pointer;
+}
+
+main{
+    float: left;
+    margin-top: 150px;
+    /* width: 900px;   */
+    height: 700px;
+    
+    
+}
+.header{
+    font-size: 30pt;
+    font-weight: lighter;
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+.header-bar{
+    width: 140px;
+    height: 5px;
+    border-bottom: 1px solid gray;
+}
+.cont{
+    height: 300px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width:0px) and (max-width:1024px){
+    main{
+        width: 800px;
+    }
+}
+@media screen and (min-width:1025px){
+    main{
+        width: 85%;
+    }
+}
+.inputbox{
+    display: flex;
+    margin-top: 20px;
+}
+.verify{
+    transition-duration: 0.8s;
+    margin-top: 20px;
+    margin-right: 10px;
+    border: 2px solid #0B2161;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    opacity: 0.7;
+}
+.input{
+    width: 500px;
+    height: 60px;
+    font-size: 20pt;
+    border: none;
+    background-color: #E6E6E6;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 100;
+    outline: none;
+}
+.input::placeholder{
+    color: #A4A4A4;
+    opacity: 0.6;
+}
+.under-bar{
+    border-bottom: 1px solid #E6E6E6;
+    width: 500px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.button{
+    border: none;
+    border-radius: 5px;
+    margin-left: 30px;
+    width: 500px;
+    height: 60px;
+    background-color: #0B2161;
+    color: white;
+    opacity: 0.7;
+    font-size: 15pt;
+}
+.button>img{
+    width: 20px;
+    filter: invert(100%);
+}
+.nav-search, .nav-recommend{
+    height: 1130px;
+}
+.totalmenu {
+    height: 1200px;    
+}
