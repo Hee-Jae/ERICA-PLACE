@@ -1,0 +1,21 @@
+{% extends 'admin_base.html' %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/modify_faq.css">
+{% endblock head %}
+
+{% block contents %}
+<div class="uq-main">
+  <form action="{% url 'create_question' %}" method="POST">
+    {% csrf_token %}
+    <div class="fr-title fx">
+      <span>제목</span>
+      <input type="text" name="title">
+    </div>
+    <div class="fr-content fx">
+      <span>내용</span>
+      <textarea name="content"></textarea>
+    </div>
+    <input class="but-confirm a" type="submit" value="작성">
+  </form>
+</div>
+{% endblock contents %}
