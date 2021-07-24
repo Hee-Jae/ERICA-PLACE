@@ -1,0 +1,245 @@
+html,body{
+    width: 100%;
+    height: 1300px;         
+}
+.a{
+    cursor: pointer;
+}
+
+
+main{
+    margin-top: 70px;    
+    width: 90%;
+    height: 90%;      
+    float: left;    
+}
+@media screen and (max-width:1300px) {
+    main{
+        width: 80%;
+    }    
+}
+.header{
+    font-size: 30pt;
+    font-weight: lighter;    
+    color: #585858;
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+.header-bar{
+    width: 80px;
+    height: 5px;
+    border-bottom: 1px solid black;
+}
+.topmenu{
+    margin-top: 30px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}
+.topmenu > li{
+    list-style: none;    
+    color: rgb(68, 100, 117);
+    background-color: #E6E6E6;
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    margin-right: 5px;
+    width: 200px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: KoreanAGDL;
+}
+/* #li1{
+    color: white;
+    background-color: rgb(68, 86, 117);
+} */
+.topmenu-li{ 
+    display: flex;   
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: NanumGothic;    
+    list-style: none;
+}
+.topmenu-li1{ 
+    margin-top: 50px;
+}
+.topmenu-li1 > img{
+    margin-top: 10px;
+    width: 20px;
+    transform: rotate(90deg);
+}
+.topmenu-li1-guide{
+    width: 700px;
+    height: 80px;
+    margin-top: 10px;
+}
+.topmenu-li1-guide-left{
+    width: 13%;
+    height: 100%;
+    float: left;
+    background-color: rgba(68, 86, 117,0.9);
+    border-top-left-radius: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    font-size: 40pt;
+}
+.topmenu-li1-guide-left > img{
+    width: 40px;
+    filter: invert(100%);
+}
+.topmenu-li1-guide-right{
+    float: left;
+    display: flex;
+    align-items: center;
+    height: 72px;
+    width: 85%;    
+    background-color: white;
+    color: black;
+    
+    border-top: 4px solid rgba(68, 86, 117,0.9);
+    border-bottom: 4px solid rgba(68, 86, 117,0.9);
+    border-right: 4px solid rgba(68, 86, 117,0.9);
+    border-bottom-right-radius: 20px;
+    color: #0B173B;
+    font-size: 20pt;
+}
+.topmenu-li1-guide-right-p1{
+    font-size: 40pt;
+    margin: 20px;
+}
+.table_css{
+    float: left;    
+    margin-left: 30px;    
+    margin-top: 10px;
+}
+.table_css > thead > tr > th{
+    background-color: rgba(68, 86, 117,0.9);
+    color: white;
+    text-align: center;
+    height: 30px;
+}
+td{
+    width: 350px;
+    height: 30px;
+    border-top: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6;
+    display: flex;    
+    align-items: center;    
+    justify-content: space-between;    
+    padding-right: 10px; */
+}
+.table-tr-left{
+    padding-left: 20px;
+}
+.table-tr-right{
+    padding-right: 20px;
+}
+.topmenu-li2{
+    width: 800px;
+    display: flex;    
+    /*align-items: center;
+    justify-content: center; */    
+    margin: auto;
+    text-align: center;
+}
+
+.topmenu-li1, .topmenu-li2 , .topmenu-li3, .topmenu-li4{
+    display: none;
+}
+.topmenu-li3{
+    
+}
+.topmenu-li3 > img{    
+    margin-top: 40px;
+    width: 80%;
+    transition: 0.5s;
+    z-index: 0;
+    /* border: 1px solid black; */
+    box-shadow: 0px 0px 0px 2px rgba(68, 86, 117,0.3);
+    border-radius: 5px;
+}
+.topmenu-li3-button > a>button,.topmenu-li3-button >button{
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: rgba(68, 86, 117,1);
+    width: 150px;
+    height: 50px;
+
+}
+.topmenu-li3-button >a> button>img ,.topmenu-li3-button > button>img{
+    width: 15px;
+    filter: invert(100%);
+    margin-left: 10px;
+}
+button:focus,button:active{
+    outline: none;
+ 
+}
+
+/* for useGuide4 */
+ul{
+    padding: 0;
+}
+.location{
+    width: 700px;
+    height: 20px;
+    color: rgba(68, 86, 117,1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.location > li{
+    float: left;
+    margin:10px
+}
+
+.coming{
+    width: 1100px;
+    height: 300px;
+    color: rgba(68, 86, 117,1);
+    border: 1px solid rgba(68, 86, 117,0.3);
+    border-radius: 10px;
+    padding: 20px;
+}
+.coming > li , .bus > li{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+.title{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.line{
+    width: 80%;
+    border: 1px solid rgba(68, 86, 117,0.3);
+    margin-top: -30px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+.bus{
+    margin-top: 50px;    
+}
+
+
+/* for nav */
+.menu_1 {
+    background-color: white;      
+}
+.menu_1 > .menu_a{
+    font-weight: bold;
+    color: rgb(68, 86, 117);
+    box-shadow: 0px 0px 5px  rgba(68, 86, 117,0.5) inset;   
+}
