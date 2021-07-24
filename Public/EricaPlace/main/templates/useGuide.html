@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  {% include 'useguide_js.html' %}
+  {% include 'nav_js.html' %}
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="/static/style/useGuide.css">
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5q2nge8x7o"></script>  
+  <script>
+    var reloaded = true;
+    var tabnum = 1; //base
+    const url = window.location.href;
+    tabnum = url.slice(-1, url.length);
+    window.onload =  function(){                    
+      if($.isNumeric(tabnum)){
+        topmenu_click(tabnum);
+      }
+      else{
+        topmenu_click(1);
+      }      
+    };         
+  </script>
+
+{% endblock head %}
+
+{% block contents %}
+  <main>    
+    <div class="header">
+      대관소개
+      <div class="header-bar"></div>
+    </div>
+    <div class="topmenu">
+      <li class="a" id="li1" onclick="topmenu_click(1)">이용안내</li>
+      <li class="a" id="li2" onclick="topmenu_click(2)">주요연락처</li>
+      <li class="a" id="li3" onclick="topmenu_click(3)">캠퍼스안내도</li>
+      <li class="a" id="li4" onclick="topmenu_click(4)">오시는길</li>
+    </div>
+
+    <div class="topmenu-li topmenu-li1">
+      <p style="font-weight: 600;
+      font-size: 25pt;">이제는, 편리하게 이용하세요</p>    
+      <br><br>        
+      <li class="topmenu-li1-guide">
+          <div class="topmenu-li1-guide-left">
+              <img src="{% static 'image/1.png' %}">
+          </div>
+          <div class="topmenu-li1-guide-right"> 
+              <p class="topmenu-li1-guide-right-p1" >1</p>
+              <p style="margin:0"">희망하는 대관장소의 예약현황을 확인하세요</p>
+              
+          </div>                
+      </li>
+      <img src="{% static 'image/direction.png' %}">
+      <li class="topmenu-li1-guide">
+          <div class="topmenu-li1-guide-left">
+              <img src="{% static 'image/2.png' %}">
+          </div>
+          <div class="topmenu-li1-guide-right">
+              <p class="topmenu-li1-guide-right-p1" >2</p>
+              <p style="margin:0">희망하는 날짜와 시간에 대관신청을 해주세요</p>
+          </div>                
+      </li>
+      <img src="{% static 'image/direction.png' %}">
+      <li class="topmenu-li1-guide">
+          <div class="topmenu-li1-guide-left">
+              <img src="{% static 'image/3.png' %}">
+          </div>
+          <div class="topmenu-li1-guide-right">
+              <p class="topmenu-li1-guide-right-p1" >3</p>
+              <p style="margin:0">신청을 해주셨으면 검토 후 승인을 해드립니다</p>
+          </div>                
+      </li>
+      <img src="{% static 'image/direction.png' %}">
+      <li class="topmenu-li1-guide">
+          <div class="topmenu-li1-guide-left">
+              <img src="{% static 'image/4.png' %}">
+          </div>
+          <div class="topmenu-li1-guide-right">
+              <p class="topmenu-li1-guide-right-p1">4</p>
+              <p style="margin:0">승인이 되었다면 마음껏 사용하셔도 됩니다</p>
+          </div>                
+      </li>
+
+  </div> 
+    <div class="topmenu-li topmenu-li2">
+      <div class="topmenu-li2-table">
+        {% for category,value in contents.items %}
+          <table class="table-striped table_css">
+            <thead>
+              <tr>
+                <th>{{category}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for v in value %}
+              <tr>
+                <td>
+                  <span class="table-tr-left">{{ v.0 }}</span>
+                  <span class="table-tr-right">{{ v.1 }}</span>
+                </td>
+              </tr>
+              {% endfor %}
+          </table>
+          {% endfor %}
+      </div>
+    </div>
+    <div class="topmenu-li topmenu-li3">
+      <img id="campusmap" src="{% static 'image/campusmap.png'%}" />
+      <div class="topmenu-li3-button">
+        <a href="{% static 'image/campusmap.png'%}" download>
+          <button class="a">고화질이미지 <img src="{% static 'image/download.png'%}"/></button
+        ></a>
+        <button class="a" id="silsa" value="1" onclick="changeimg_campusmap()">
+          실사이미지보기 <img src="{% static 'image/see.png'%}" />
+        </button>
+      </div>
+    </div>
+    <div class="topmenu-li topmenu-li4">
+
+      <div id="map" style="width:900px; height:500px;box-shadow: 0px 0px 0px 2px rgba(68, 86, 117,0.3);
+      border-radius: 5px;margin-top: 40px; z-index: -999;"></div>
+      <script>
+        var position = new naver.maps.LatLng(37.29706653737402, 126.8342784974931);
+    
+        var map = new naver.maps.Map('map', {
+          center : position,
+          zoom : 16,
+        });
+
+        var markerOptions = {
+          position : position,
+          map : map,
+          icon : {
+            url : "{% static 'image/school.png' %}",
+            size : new naver.maps.Size(500,500),
+            origin : new naver.maps.Point(0, 0),
+            anchor : new naver.maps.Point(0,50),
+            scaledSize : new naver.maps.Size(50,50)
+          }
+        };
+
+        var marker = new naver.maps.Marker(markerOptions);
+      </script>
+
+    <ul class="location">
+      <li>
+      <strong>주소</strong>
+      <span>경기도 안산시 상록구 한양대학로 55</span>
+      </li>
+      <li>
+        <strong>대표전화</strong>
+        <span>031-400-5114</span>
+      </li>
+      <li>
+        <strong>우편번호</strong>
+        <span>15588</span>
+      </li>
+    </ul>
+
+    
+    <ul class="coming">       
+      <div class="title">
+        찾아오시는길
+      </div>
+      <li> 
+        <strong>고속도로로 오시는 경우</strong>
+        <span>서해안 고속도로 매송 IC 이용 (매송 IC → 한양대학교 ERICA 캠퍼스 총 7km, 10분 소요</span>
+      </li> 
+      <li> 
+        <strong>서울 강남, 판교에서 오시는 경우</strong> 
+        <span>과천-의왕-봉담간 고속화도로(서수원IC) → 북고개 삼거리 이용(서수원IC) → 한양대학교 ERICA 캠퍼스, 총 12km, 20분 소요)</span> 
+      </li> 
+      <li> 
+        <strong>지하철 이용하여 오시는 경우</strong>
+        <span>지하철 4호선, 수인분당선&nbsp;한대앞 역에서 하차하여 한양대 셔틀버스 이용(10~15분 간격 운행)</span>
+      </li> 
+      <li> 
+        <strong>김포공항에서 오시는 경우</strong>
+        <span>공항버스 이용(1시간 30분 소요) → 안산종합여객 자동차 터미널 → 한양대학교 ERICA 캠퍼스 (터미널-캠퍼스간 택시 기준 5분 소요)</span>
+      </li> 
+    
+      
+      <div class="bus">
+        <div class="line"></div>
+        <div class="title">주변 버스 정류장</div> 
+        <li> <strong>한양대(17017) </strong>일반 10-1, 직행 3100, 3101</li> 
+        <li><strong>한양대입구(17018) </strong>일반 10-1</li> 
+        <li><strong>한양대정문(17311) </strong>직행 3100, 3101, 3102</li> 
+        <li><strong>한양대게스트하우스(17361, 17368) </strong> 일반 10-1 직행 3102</li> 
+      </div>      
+    </ul>
+          
+    
+  </main>
+
+{% endblock contents %}
