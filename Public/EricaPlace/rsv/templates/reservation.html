@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/reservation.css">
+<link rel="stylesheet" href="/static/style/nav_form.css"/>
+<link rel="stylesheet" href="/static/bootstrap.min.css">
+<link href="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://momentjs.com/downloads/moment.min.js"></script>
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/ko.js"></script>
+
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="No-Cache">
+
+{% include 'reservation_js.html' %}
+{% endblock head %}
+{% block contents %}
+{% if messages %}
+    <span class="messages">
+        {% for message in messages %}
+        <script>
+            alert("{{ message}}");
+        </script>
+        {% endfor %}
+    </span>
+{% endif %}
+
+  <main>
+    <div class="header">
+      대관신청
+      <div class="header-bar"></div>
+    </div>
+    <div class="card">
+      <div class="card-img">
+        <img src="{{ room.photo.url }}" />
+      </div>
+      <br></br>
+      <br>
+      <p>{{room.subname}}</p>
+      <br>
+      <div class = "capacity">좌석수 | {{ room.capacity }}</div>
+      <div class = "equip">기자재 | {{room.equipment}}</div>
+    </div>
+    <form id="formRsv" name="formRsv" method="POST" action="{% url 'form' room.id %}">
+      {% csrf_token %}
+      <div class="box_txt">
+        <hr class = "upper_line">
+        
+        <div class = "box_txt">
+          <span class = "room_name">{{room.name}}</span>
+          <span class = "rsvdate">예약날짜</span>
+          <div class = "datepick">
+            <div class='col-sm-6'>
+                <div class="form-group">
+                  <div class='input-group date' id='datePicker'>
+                      <input type='text' name="date" class="form-control" onkeydown="return false" min = "{{ now }}" value ="{{ now }}"/>
+                      <span class="input-group-addon"></span>
+                  </div>
+                </div>
+            </div>
+          </div>
+        
+          <hr class = "lower_line">
+
+          <div class = "timepicker">
+            <input type="checkbox" name="chk" id="timechk1" onchange=ClickOK() value="8">
+            <label for="timechk1"><br>8:00 - 9:00</label>
+            <input type="checkbox" name="chk" id="timechk2" onchange=ClickOK() value="9">
+            <label for="timechk2"><br>9:00 - 10:00</label>
+            <input type="checkbox" name="chk" id="timechk3" onchange=ClickOK() value="10">
+            <label for="timechk3"><br>10:00 - 11:00</label>
+            <input type="checkbox" name="chk" id="timechk4" onchange=ClickOK() value="11">
+            <label for="timechk4"><br>11:00 - 12:00</label>
+            <input type="checkbox" name="chk" id="timechk5" onchange=ClickOK() value="12">
+            <label for="timechk5"><br>12:00 - 13:00</label>
+            <input type="checkbox" name="chk" id="timechk6" onchange=ClickOK() value="13">
+            <label for="timechk6"><br>13:00 - 14:00</label>
+            <input type="checkbox" name="chk" id="timechk7" onchange=ClickOK() value="14">
+            <label for="timechk7"><br>14:00 - 15:00</label>
+            <input type="checkbox" name="chk" id="timechk8" onchange=ClickOK() value="15">
+            <label for="timechk8"><br>15:00 - 16:00</label>
+            <input type="checkbox" name="chk" id="timechk9" onchange=ClickOK() value="16">
+            <label for="timechk9"><br>16:00 - 17:00</label>
+            <input type="checkbox" name="chk" id="timechk10" onchange=ClickOK() value="17">
+            <label for="timechk10"><br>17:00 - 18:00</label>
+            <input type="checkbox" name="chk" id="timechk11" onchange=ClickOK() value="18">
+            <label for="timechk11"><br>18:00 - 19:00</label>
+            <input type="checkbox" name="chk" id="timechk12" onchange=ClickOK() value="19">
+            <label for="timechk12"><br>19:00 - 20:00</label>
+            <input type="checkbox" name="chk" id="timechk13" onchange=ClickOK() value="20">
+            <label for="timechk13"><br>20:00 - 21:00</label>
+            <input type="checkbox" name="chk" id="timechk14" onchange=ClickOK() value="21">
+            <label for="timechk14"><br>21:00 - 22:00</label>
+          </div>
+          
+          <div id = "buttons">
+            <button class="rsv_confirm" type="button" onclick="daycheck();" >작성 완료 </button>
+            <input type="reset" class="rst" id = "reset" value="초기화" onclick="chkDate()"/>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    
+      
+    <div class = "info">
+      
+      <hr class = "lower_line">
+      <div class = "notice">
+        <p>유의 사항</p>
+        <br>
+        - 강의실 기자재를 사용할 경우 해당 단과대학 행정팀으로 문의하시기 바랍니다.<br>
+        - 이용시간을 준수해야하며, 행사 취소/변경시 반드시 취소/변경 요청을 해야 합니다.<br>
+        - 이용시설물 및 기자재의 파손, 분실 시 전액 변상 해야합니다.<br>
+        - 사용 후에는 모든 시설물 및 기자재는 원위치 상태로 배치하여야 합니다.<br>
+        - 강의실 및 회의실 내의 음식물 반입 및 흡연 등 환경을 오염시키는 행위는 금합니다.<br>
+        - 승인받은 내용과 다른 행사로는 사용할 수 없습니다.
+      </div>
+    </div>
+
+  </main>
+
+  
+{% endblock contents %}

@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/form.css" />
+<link rel="stylesheet" href="/static/style/nav_form.css"/>
+<link rel="stylesheet" href="/static/bootstrap/bootstrap.min.css">
+{% include 'form_js.html' %}
+{% endblock head %}
+{% block contents %}
+  <main>
+    <div class="header">
+      대관신청
+      <div class="header-bar"></div>
+    </div>
+    <div class = "form-cover">
+      <h2>대관신청 정보</h2>
+            <div class="">
+                <table class="table text-center">
+                    <thead>
+                        <tr class = "th_cover">
+                            <th>대관건물</th>
+                            <th>대관 공간(호)</th>
+                            <th>좌석수</th>
+                            <th>대관날짜</th>
+                            <th>대관시간</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        <tr>
+                            <td class="row">{{room.name}}</td>
+                            <td>{{room.subname}}</td>
+                            <td>{{room.capacity}}</td>
+                            <td class="date">{{date}}</td>
+                            <td class="time">{{start_time}}:00-{{end_time}}:00</td>
+                        </tr>                                
+                    </tbody>                 
+                </table>
+            </div>
+        </div>
+        <br><br>
+        <form id="formRent" name="formRent" action="{% url 'create' %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name = "date" value={{date}}>
+          <input type="hidden" name = "start" value={{start_time}}>
+          <input type="hidden" name = "end" value={{end_time}}>
+          <input type="hidden" name = "room" value={{room.id}}>
+
+          <fieldset>
+            <div class="selectBox">
+              <div class="sqr-input">
+                <div class="text-input">
+                  <label for="list">신분</label>
+                  <select name="list">
+                    <option value="0" disabled selected hidden>선택</option>
+                    <option value="1">학생</option>
+                    <option value="2">관계자</option>
+                    <option value="3">외부인</option>
+                  </select>
+                </div>
+              </div>
+              
+              <br><br>
+              <div>
+                <div class="form-inputs">
+                  <div class="sqr-input">
+                    <div class="text-input">
+                      <label for="NAME">신청자 이름</label>
+                      <input name="NAME" class="data1" type="text" placeholder="ex) 한글 : 홍길동 / English : Hong Gildong" dispname="이름" maxlength="20" disabled>
+                    </div>
+                    <div class="text-input">
+                      <label for="COMPANY">소속 단체명</label>
+                      <input name="COMPANY" class="data2" type="text" placeholder="소속 단체 및 회사명" dispname="소속 단체명" maxlength="20" disabled>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="sqr-input">
+                    <div class="text-input">
+                      <label for="STUDENT_ID">학번</label>
+                      <input name="STUDENT_ID" class="data3" type="text" placeholder="숫자만 입력해주세요 (10자)" dispname="이름" maxlength="20" disabled >
+                    </div>
+                    <div class="text-input">
+                      <label for="COM_NUM">사업자번호</label>
+                      <input name="COM_NUM" class="data4" type="text" placeholder="숫자만 입력해주세요 (10자)" dispname="사업자번호" maxlength="10" disabled>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="sqr-input">
+                    <div class="text-input">
+                      <label for="PHONE_NUM">연락처</label>
+                      <input name="PHONE_NUM" class="data5" type="text" placeholder="'-'을 제외하고 입력해주세요" dispname="연락처" datat1ype="phone" maxlength="20" disabled>
+                    </div>
+                    <div class="text-input">
+                      <label for="EMAIL">이메일</label>
+                      <input name="EMAIL" class="data6" type="email" placeholder="ex@hanyang.ac.kr" dispname="이메일" class="raInput50" maxlength="20" disabled>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="sqr-input">
+                    <div class="text-input">
+                      <label for="MAN_NUM">사용 인원</label>
+                      <select id="MAN_NUM" class="data8" name="MAN_NUM" disabled>
+                        <option value="0" disabled selected hidden>사용 인원을 선택해주세요</option>
+                        <option value="20">20명 미만</option>
+                        <option value="20">30명 미만</option>
+                        <option value="40">40명 미만</option>
+                        <option value="50">50명 미만</option>
+                        <option value="51">50명 이상</option>
+                      </select>
+                    </div>
+                    <div class="text-input">
+                      <label for="PURPOSE">사용 목적</label>
+                      <select id="PURPOSE" class="data9" name="PURPOSE" disabled>
+                        <option value="-" disabled selected hidden> 사용 목적을 선택해주세요 </option>
+                        {% for purpose in purposes.all %}
+                        <option value="{{purpose.id}}">{{purpose.use_purpose}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  
+                  <div class="text-input">
+                    <label for="MAIN_CONTENTS">행사 내용</label>
+                    <textarea name="MAIN_CONTENTS" class="data9" id="message" placeholder="주요 행사 내용을 입력해주세요" maxlength="100" disabled></textarea>
+                  </div>
+              
+              </div>
+            </div>
+            </fieldset>
+
+
+            
+        <div class="text-center">
+            <button class="form_confirm" type="button" onclick="chk()">대관신청</button>
+            <button class="find" type="button" onclick="location.href= '{% url 'building' %}' ">더 알아보기</button>
+        </div>
+        </form>
+    </div>
+
+  </div>
+
+  </main>
+  {% endblock %}
