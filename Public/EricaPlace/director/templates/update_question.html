@@ -1,0 +1,24 @@
+{% extends 'admin_base.html' %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/modify_faq.css">
+{% endblock head %}
+
+{% block contents %}
+<div class="uq-main">
+  <form action="{% url 'update_question' id %}" method="POST">
+    {% csrf_token %}
+    <div class="fr-title fx">
+      <span>제목</span>      
+      <input type="text" name="title" value="{{ title }}">
+    </div>
+    <div class="fr-content fx">
+      <span>내용</span>
+      <textarea name="content">{{ content }}</textarea>
+    </div>    
+    <input class="but-confirm a" type="submit" value="수정">    
+  </form>
+  <button class="but-del a" onClick="location.href = '{% url 'delete_faq' id %}' ">삭제</button>
+  
+</div>
+
+{% endblock contents %}
