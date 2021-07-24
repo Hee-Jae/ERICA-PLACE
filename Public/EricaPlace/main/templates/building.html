@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/style/building.css">
+{% include 'main_js.html' %}
+{% endblock head %}
+
+{% block contents %}
+  <main>
+    <div class="header">
+      건물별공간안내
+      <div class="header-bar"></div>
+    </div>
+    <div class="cont">
+      {% for building in buildings.all %}
+      <div class="card">
+        <div class="card-img" onClick="location.href='{% url 'roomlist' building.id %}'">
+          <img src="{{ building.photo.url }}" />
+          <div class="card-detail">
+            <div class="goto-reserv a" onClick="location.href='{% url 'roomlist' building.id %}'">
+              들어가기
+              <img src="{% static 'image/next.png' %}" class="a" />
+            </div>            
+          </div>
+        </div>
+        <div class="card-description">
+          <div class="card-des-top">            
+            <p class="facility">{{ building.english_name }}</p>
+            <p class="number">[ {{ building.code }} ]</p>
+          </div>
+          <p class="title">{{ building.name }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+{% endblock contents %}
