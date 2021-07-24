@@ -1,0 +1,59 @@
+{% extends 'admin_base.html' %}
+{% block head %}
+    <!-- <link rel="stylesheet" href="/static/style/update_building.css"> -->
+    <link rel="stylesheet" href="/static/style/update_room.css">
+{% endblock head %}
+
+{% block contents %}
+
+<main>
+    <form  method="POST" enctype= "multipart/form-data" action="{% url 'update_building' building.id %}" class="ur-form">
+        {% csrf_token %}     
+        
+        <img id="img_section2" src = "{{ building.photo.url }}">
+        
+        <div class="fr-cont">
+            <div class="fr-cont-in fr-cont-in2">
+                <div class="in-left">건물명</div>
+                <input type="text" name="name" value="{{ building.name }}">            
+            </div>
+            <div class="fr-cont-in fr-cont-in2">
+                <div class="in-left">영어건물명</div>
+                <input type="text" name="english_name" value="{{ building.english_name }}">                        
+            </div>            
+            <div class="fr-cont-in fr-cont-in2">
+                <div class="in-left">건물번호</div>
+                <input type="text" name="code" value="{{ building.code }}">
+            </div>
+            <div class="fr-cont-in fr-cont-in2">
+                <div class="in-left">사진</div>
+                <div class="filebox">
+                    <label for="imgInput" >업로드</label>
+                    <input id="imgInput" type="file" name="photo" accept=".jpg, .jpeg, .png">        
+                </div>
+            </div>            
+            <div class="fr-cont-in fr-cont-in2 confirm2" style="height: 96px;">
+                <button class="a confirm" type="submit" >수정하기</button>    
+            </div>
+            
+        </div>
+        
+    </form>
+    <button class="a del"  onClick="location.href = '{% url 'delete_building' building.id %}' ">삭제</button>
+</main>
+<script>    
+    function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $("#img_section2").attr("src", e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#imgInput").change(function () {    
+    readURL(this);    
+  });
+</script>
+
+{% endblock contents %}
