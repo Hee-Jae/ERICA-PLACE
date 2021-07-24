@@ -2,6 +2,17 @@
 
 ### 주제 : 교내 시설물 대관 시스템
 ### 기간 : 2020. 07 ~ 2021. 05
+### 기술 스택
+<span>
+<img src=https://user-images.githubusercontent.com/22339356/125117830-bf0ad900-e129-11eb-9474-69e392a7098d.png width="300">
+<img width="40">
+<img src=https://user-images.githubusercontent.com/22339356/126877520-8cf3518e-1bd1-4a65-be07-9e710aef2836.png width="230">
+</span> <br><br>
+<span>
+<img src=https://user-images.githubusercontent.com/22339356/126877516-850cb4eb-9580-40a5-8b09-d489bee1d311.png width="230">
+<img width="40">
+<img src=https://user-images.githubusercontent.com/22339356/126877522-8c54c678-b146-4e9d-ac57-9f402f9372ed.png width="350">
+</span>
 
 ---
 ### 디렉토리 구조
@@ -39,6 +50,43 @@ Public
 
 ### 주의 사항
 서버 배포 시 `/Public/EricaPlace/EricaPlace/settings.py` 파일의 `SECRET_KEY` 를 절대 노출 시키면 안된다.
+
+---
+### 둘러보기
+<details>
+    <summary> 메인 페이지 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126877840-b8c111df-8518-49b9-a3e4-63bbd0dc2f3b.png width="1000">
+</details>
+
+
+<details>
+    <summary> 이용 안내 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126877919-72647e69-2baa-46e3-bb2e-93488479ac12.png width="1000">
+</details>
+
+
+<details>
+    <summary> 주요 연락처 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126877941-5e934af5-a738-46d4-98e1-a69a04e64454.png width="1000">
+</details>
+
+
+<details>
+    <summary> 캠퍼스 지도 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126877946-6abb979e-2c16-4ed3-81fe-a958d2c4a90e.png width="1000">
+</details>
+
+
+<details>
+    <summary> 캠퍼스 실사 이미지 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126877942-9965739f-1d64-4b41-bd34-ec5f6e3709dc.png width="1000">
+</details>
+
+
+<details>
+    <summary> 오시는 길 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126877937-83ce28a6-eb97-466f-ba28-0320ac28c19b.png width="1000">
+</details>
 
 ---
 ### 개발팀 구성원
