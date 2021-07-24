@@ -1,0 +1,27 @@
+<script>
+  $(function(){
+      $("#input_1 , #input_2").on("propertychange change keydown paste input", function(){            
+          if($(this).attr("id")=="input_1") $(".v1").css("backgroundColor","#0B2161")
+          else if($(this).attr("id")=="input_2") $(".v2").css("backgroundColor","#0B2161")            
+      });
+  });
+
+  function verify_input(a){    
+    var num = ".v" + a.split("_")[1];
+    if(a!='input_4'){        
+        if(document.getElementById(a).value != "" ){        
+            $(num).css("backgroundColor","#0B2161")
+        }
+        else{
+            $(num).css("backgroundColor","white")
+        }
+    }
+    else{
+        var option = document.getElementById("selectoption");
+        option = option.options[option.selectedIndex].value;        
+        if(option!=""){            
+            $(num).css("backgroundColor","#0B2161")
+        }
+    }    
+  }
+</script>
