@@ -1,0 +1,44 @@
+{% extends 'admin_base.html' %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/modify_faq.css">
+{% endblock head %}
+
+{% block contents %}
+{% if messages %}
+    <span class="messages">
+        {% for message in messages %}
+        <script>
+            alert("{{ message}}");
+        </script>
+        {% endfor %}
+    </span>
+{% endif %}
+<main>
+  <div class="header">
+      FAQ
+      <div class="header-bar"></div>
+      <div class="but_create a" onClick="location.href='{% url 'create_question' %}' ">글쓰기</div>
+  </div>
+  <table class="table_css">
+      <thead>
+          <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>작성자</th>
+              <th>날짜</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for faq,index in faqs.items %}
+            <tr class="table_title">
+              <td>{{ index }}</td>
+              <td><a class="a-title" href="{% url 'update_question' faq.id %}">{{ faq.title }}</a></td>
+              <td>{{ faq.writer }}</td>
+              <td>{{ faq.date|date:"Y.m.d" }}</td>
+            </tr>
+          
+          {% endfor %}
+      </tbody>
+  </table>
+</main>
+{% endblock contents %}
