@@ -1,0 +1,31 @@
+{%load static %}
+<script>
+function topmenu_click(num){        
+    for (let index = 1; index < 5; index++) {
+        var li = "#li" + index +"";
+        var dli = ".topmenu-li" + index;
+        $(dli).css("display","none");        
+        $(li).css("color","rgb(68, 100, 117)");
+        $(li).css("backgroundColor","#E6E6E6");
+    }
+    var li = "#li" + num;
+    var dli = ".topmenu-li" + num;
+    $(dli).css("display","flex");        
+    $(li).css("backgroundColor","rgb(68, 86, 117)");
+    $(li).css("color","#E6E6E6");     
+}
+
+function changeimg_campusmap(){   
+    const s = document.getElementById('silsa');
+    if(s.value == 1){
+        document.getElementById('campusmap').src = "{% static 'image/campusmap_silsa.png' %}";
+        document.getElementById('silsa').innerText = "안내도보기";
+        s. value = 2;
+    }
+    else{
+        document.getElementById('campusmap').src = "{% static 'image/campusmap.png' %}";
+        document.getElementById('silsa').innerText = "실사이미지보기";
+        s. value = 1;
+    }    
+}
+</script>
