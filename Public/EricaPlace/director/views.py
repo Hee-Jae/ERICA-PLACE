@@ -3,12 +3,11 @@ from rsv.models import Reservation
 from main.models import College, Building, Room, College
 from faq.models import FAQ
 from django.core.paginator import Paginator
-from django.contrib.auth.models import User
 from django.contrib import auth
-from datetime import timedelta, datetime
+from datetime import datetime
 from django.contrib import messages
 from django.core.mail.message import EmailMessage
-
+from EricaPlace.settings import EMAIL_HOST_USER
 # Create your views here.
 def login(request):
   if request.method == "POST":
@@ -90,7 +89,7 @@ def status(request):
 def send_email(msg, email):
   subject = "[EricaPlace] 대관 신청 통보 메시지"
   to = [email]
-  from_email = 'ericaplace2@gmail.com'
+  from_email = EMAIL_HOST_USER
   message = msg
   EmailMessage(subject=subject,
   body=message,
