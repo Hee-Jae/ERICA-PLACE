@@ -1,0 +1,27 @@
+{% extends 'admin_base.html' %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/modify.css">
+{% endblock head %}
+{% block contents %}
+<main>
+
+    <a href="{% url 'director_status' %}" class="set set_building">        
+        신청현황
+        <span class="a_bar"></span>
+    </a>  
+
+    <a href="{% url 'modify_building' %}" class="set set_building">        
+        건물설정
+        <span class="a_bar"></span>
+    </a>    
+    <a href="{% url 'building_list' %}" class="set set_room">
+        방설정
+        <span class="a_bar"></span>
+    </a>    
+    <a href="{% url 'modify_faq' %}" class="set set_faq">
+        FAQ설정
+        <span class="a_bar"></span>
+    </a>
+
+</main>
+{% endblock contents %}
