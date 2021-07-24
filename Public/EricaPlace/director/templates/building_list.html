@@ -1,0 +1,55 @@
+{% extends 'admin_base.html' %}
+{% block head %}
+    <link rel="stylesheet" href="/static/style/building.css">    
+    <style>
+      .menu_3> .menu_a {
+         font-weight: normal;
+         color: white;      
+      }
+      .menu_3 {          
+          background-color:  rgb(68, 86, 117);          
+      }
+      .menu_5 {
+          background-color: white;      
+      }
+      .menu_5 > .menu_a{
+          font-weight: bold;
+          color: rgb(68, 86, 117);
+          box-shadow: 0px 0px 5px  rgba(68, 86, 117,0.5) inset;   
+      }
+    </style>
+    {% include 'main_js.html' %}
+{% endblock head %}
+{% block contents %}
+<main>
+    <div class="header">
+      건물 선택
+      <div class="header-bar"></div>
+    </div>
+    
+    <div class="cont">
+      {% for building in buildings.all %}
+      <div class="card">
+        <div class="card-img" onClick="location.href='{% url 'modify_room' building.id %}'">
+          <img src="{{ building.photo.url }}" />          
+          <div class="card-detail">            
+            <div class="goto-reserv a">
+              들어가기
+              <img src="/static/image/next.png" class="a" />
+            </div>          
+          </div>
+        </div>
+        <div class="card-description">
+          <div class="card-des-top">            
+            <p class="facility">{{ building.english_name }}</p>
+            <p class="number">[ {{ building.code }} ]</p>
+          </div>
+          <p class="title">{{ building.name }}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+</main>
+
+{% endblock contents %}
