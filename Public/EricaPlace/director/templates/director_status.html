@@ -1,0 +1,197 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="/static/style/status.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% include 'direct_status_js.html' %}
+{% endblock head %}
+{% block contents %}
+{% if messages %}
+    <span class="messages">
+        {% for message in messages %}
+        <script>
+            alert("{{ message}}");
+        </script>
+        {% endfor %}
+    </span>
+{% endif %}
+
+    <main>
+        <header>
+                <img src="/static/image/monitor.png">
+                신청 현황 관리
+        </header>
+        <div class="form-check">
+            <form action="{% url 'director_status' %}" method="GET">            
+                <select class="opt-college" name="college">
+                    <option value=""> 전 체 </option>
+                    {% for col in college %}
+                        {% if search_status.college == col.id|stringformat:"i" %}
+                        <option  value="{{ col.id }}" selected> {{ col.name }} </option>
+                        {% else %}
+                        <option  value="{{ col.id }}"> {{ col.name }} </option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <div class="form-chk-label">
+                    {% if search_status.admit == '1' %}
+                    <label><input type="radio" value="1" name="admit" checked> 승인완료 </label>
+                    {% else %}
+                    <label><input type="radio" value="1" name="admit"> 승인완료 </label>
+                    {% endif %}
+                    {% if search_status.admit == '0' %}
+                    <label><input type="radio" value="0" name="admit" checked> 처리중 </label>
+                    {% else %}
+                    <label><input type="radio" value="0" name="admit"> 처리중 </label>
+                    {% endif %}
+                    {% if search_status.admit == '2' %}
+                    <label><input type="radio" value="2" name="admit" checked> 승인거부 </label>
+                    {% else %}
+                    <label><input type="radio" value="2" name="admit"> 승인거부 </label>
+                    {% endif %}
+                </div>
+                {% if search_status.start_date %}
+                <input class="input-date" type="date" name="start_date" value="{{ search_status.start_date }}"> 
+                {% else %}
+                <input class="input-date" type="date" name="start_date" value="{{ now }}">
+                {% endif %}
+                <p>~</p>
+                {% if search_status.end_date %}
+                <input class="input-date" type="date" name="end_date" value="{{ search_status.end_date }}"> 
+                {% else %}
+                <input class="input-date" type="date" name="end_date">
+                {% endif %}
+                <input class="confirm" type="submit" value="조회하기">
+            </form>    
+            {% if search_status.college or search_status.admit or search_status.start_date or search_status.end_date %}
+                <button class="a veiw_all" style="margin-bottom: 11px;" onclick="location.href = '{% url 'director_status' %}' "> 전체보기</button>
+            {% endif %}        
+        </div>
+        
+        
+        <div class="form-page">
+            {% if pagelists.has_previous %}
+
+            <!-- FIRST -->
+            <a style="padding: 0; margin-right: 10px;" class="direction" href="?pagelist=1&page={{ posts.number }}&college={{ search_status.college }}&admit={{ search_status.admit }}&start_date={{ search_status.start_date }}&end_date={{ search_status.end_date }}">
+                <img src="/static/image/direction_double.png" style="width: 21px; transform: rotateY(180deg);">
+            </a>
+
+            <!-- PRE -->
+            <a style="padding: 0; " class="direction" href="?pagelist={{ pagelists.previous_page_number }}&page={{ posts.number }}&college={{ search_status.college }}&admit={{ search_status.admit }}&start_date={{ search_status.start_date }}&end_date={{ search_status.end_date }}">
+                <img src="/static/image/direction_single.png" style="margin-top: 3px;">
+            </a>
+            {% endif %}
+                        
+            {% for page in pagelists %}
+            <a href="?pagelist={{ pagelists.number }}&page={{ page }}&college={{ search_status.college }}&admit={{ search_status.admit }}&start_date={{ search_status.start_date }}&end_date={{ search_status.end_date }}"> {{ page }} </a>
+            {% endfor %}
+
+            {% if pagelists.has_next %}
+            <!-- NEXT -->
+            <a style="padding: 0;" class="direction" href="?pagelist={{ pagelists.next_page_number }}&page={{ posts.number }}&college={{ search_status.college }}&admit={{ search_status.admit }}&start_date={{ search_status.start_date }}&end_date={{ search_status.end_date }}">
+                <img src="/static/image/direction_single.png" style="margin-top: 2px; transform: rotateY(180deg);">
+            </a>
+
+            <!-- LAST -->
+            <a style="padding: 0;" class="direction" id="dir-last" href="?pagelist={{ pagelists.paginator.num_pages }}&page={{ posts.number }}&college={{ search_status.college }}&admit={{ search_status.admit }}&start_date={{ search_status.start_date }}&end_date={{ search_status.end_date }}">
+                <img src="/static/image/direction_double.png" style="width: 21px;">
+            </a>
+            {% endif %}
+        </div>
+        {% if not posts %}
+            신청 내역이 없습니다.
+        {% endif %}
+        {% for rsv in posts %}
+        <div class="main-cont">     
+            
+            <div class="cont-room-info">
+                <div class="c-r-left"> 방 이름 </div>
+                <div class="c-r-right">{{ rsv.room_id.name }}</div>
+                <div class="c-r-left"> 날 짜 </div>
+                <div class="c-r-right">{{ rsv.rsv_date|date:"Y-m-d" }}</div>
+                <div class="c-r-left"> 이용예정 시간</div>                
+                <div class="c-r-right"> {{ rsv.start_time }}:00 - {{ rsv.end_time }}:00</div>
+                <div class="c-r-left"> 인원 수 </div>
+                <div class="c-r-right">{{ rsv.headcount }}</div>
+                <div class="c-r-left"> 신청자 이름 </div>
+                <div class="c-r-right">{{ rsv.username }}</div>
+                <div class="c-r-left"> 예약시간 </div>
+                <div class="c-r-right">{{ rsv.date|date:'Y-m-d H:i:s'}}</div>
+            </div>
+
+            <div class="cont-user-info">
+                {% if rsv.user_type == 1 %}
+                <div class="c-u-left">신분</div>
+                <div class="c-u-right">학생</div>
+                {% elif rsv.user_type == 2 %}
+                <div class="c-u-left"> 신분 </div>
+                <div class="c-u-right">관계자</div>
+                {% elif rsv.user_type == 3 %}
+                <div class="c-u-left">신분 </div>
+                <div class="c-u-right"> 외부인</div>
+                {% endif %}
+
+                <div class="c-u-left"> 그룹 명 </div>
+                <div class="c-u-right">{{ rsv.group_name }}</div>
+                <div class="c-u-left"> 학번/사업자 번호 </div>
+                <div class="c-u-right">{{ rsv.user_number }}</div>
+                <div class="c-u-left"> 사용 목적 </div>
+                <div class="c-u-right">{{ rsv.purpose }}</div>
+                <div class="c-u-left"> 핸드폰 번호</div>
+                <div class="c-u-right">{{ rsv.phone_number }}</div>
+                <div class="c-u-left">이메일 </div>
+                <div class="c-u-right">{{ rsv.email }}</div>
+            </div>
+
+            {% if rsv.admit == 1 %}
+            <div class="cont-check">
+                <div class="admit fx">
+                    신청 상태 : 승인 완료
+                    <div class="admit-color ac2"></div>
+                </div>
+                <div class="cancel fx">
+                    <div class="button_cancle a" id="but_cancle" onclick = "openForm({{ rsv.id }},0)">
+                        승인취소    
+                    </div>
+                </div>
+            </div>
+            {% include 'admit_cancle.html' %}
+
+            {% elif rsv.admit == 0 %}
+            <div class="cont-check">
+                <div class="admit fx">
+                    신청 상태 : 처리중                
+                    <div class="admit-color ac1"></div>
+                </div>
+                <div class="cancel fx">
+                    <div class="button_cancle a" id="but_confirm" onclick = "openForm({{ rsv.id }},1)">
+                        신청승인               
+                    </div>
+                    <div class="button_cancle a" id="but_reject" onclick = "openForm({{ rsv.id }},2)">
+                        승인거부   
+                    </div>  
+                </div>
+            </div>
+            {% include 'admit_refuse.html' %}
+            {% include 'admit_ok.html' %}
+
+            {% else %}
+            <div class="cont-check">
+                <div class="admit fx">
+                    신청 상태 : 승인 거부
+                    <div class="admit-color ac3"></div>
+                </div>
+                <div class="cancel fx">
+                    <div class="button_cancle a" id="but_confirm" onclick = "openForm({{ rsv.id }},1)">
+                        신청승인               
+                    </div> 
+                </div>
+            </div>
+            {% include 'admit_ok.html' %}
+
+            {% endif %}          
+        </div>
+        {% endfor %}
+    </main>
+{% endblock contents %}
