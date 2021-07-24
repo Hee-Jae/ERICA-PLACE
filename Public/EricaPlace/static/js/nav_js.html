@@ -1,0 +1,101 @@
+<script>
+    var nav_recommend_bool=true;
+    var nav_search_bool=true;
+    function nav_manage(num){
+        if(num==1){
+            if(!nav_search_bool){
+                $("#searchicon").css("opacity","0");          
+                setTimeout(() => {
+                    $("#searchicon").css("opacity","1");          
+                    document.getElementById("searchicon").src = "/static/image/search_label.png";
+                }, 100);
+                nav_search_bool = true;
+                $(".nav-search").css("transform","translateX(260px)");
+            }
+            nav_recommend();            
+        }
+        else{
+            if(!nav_recommend_bool){
+                $("#recommendicon").css("opacity","0");          
+                setTimeout(() => {
+                    $("#recommendicon").css("opacity","1");          
+                    document.getElementById("recommendicon").src = "/static/image/star_label.png";
+                }, 100);
+                nav_recommend_bool = true;
+                $(".nav-recommend").css("transform","translateX(360px)");
+            }
+            nav_search();
+        }
+    }
+  function nav_search(){
+    if(nav_search_bool){            
+        $("#searchicon").css("opacity","0");          
+        setTimeout(() => {
+            $("#searchicon").css("opacity","1");          
+            document.getElementById("searchicon").src = "/static/image/close.png";
+        }, 100);
+        nav_search_bool = false;
+        $(".nav-search").css("transform","translateX(0px)");
+        
+    }
+    else{
+        $("#searchicon").css("opacity","0");          
+        setTimeout(() => {
+            $("#searchicon").css("opacity","1");          
+            document.getElementById("searchicon").src = "/static/image/search_label.png";
+        }, 100);
+        nav_search_bool = true;
+        $(".nav-search").css("transform","translateX(260px)");
+        // 옆에서 나오는거
+    }        
+}
+    function nav_recommend(){        
+        if(nav_recommend_bool){            
+            $("#recommendicon").css("opacity","0");          
+            setTimeout(() => {
+                $("#recommendicon").css("opacity","1");          
+                document.getElementById("recommendicon").src = "/static/image/close.png";
+            }, 100);
+            nav_recommend_bool = false;
+            $(".nav-recommend").css("transform","translateX(0px)");
+            // 옆에서 나오는거      
+            
+        }
+        else{
+            $("#recommendicon").css("opacity","0");          
+            setTimeout(() => {
+                $("#recommendicon").css("opacity","1");          
+                document.getElementById("recommendicon").src = "/static/image/star_label.png";
+            }, 100);
+            nav_recommend_bool = true;
+            $(".nav-recommend").css("transform","translateX(360px)");
+            // 옆에서 나오는거
+        }        
+    }
+
+
+function menupopup(_bool){
+    if(_bool){$(".totalmenu").css("visibility","visible");}
+    else{$(".totalmenu").css("visibility","hidden");}
+        
+}
+function nav_s_peoplenum(){            
+    $(".nav-s-r-cont").css("display","none");    
+    var contnum = ".cont" + $("#nav-s-peoplenum").val();    
+    $(contnum).css("display","flex");
+    setTimeout(()=>{
+        if($("#nav-s-peoplenum").val() == 0){$(".nav-s-inputbox").css("height","500px");}
+        else{$(".nav-s-inputbox").css("height","90px");}
+    },500);
+
+    
+    
+    
+}
+function to_Useguide(_num){    
+    setTimeout(() => {
+        window.location.reload();    
+    }, 50);
+    
+}
+</script>
