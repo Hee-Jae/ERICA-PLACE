@@ -1,6 +1,5 @@
 {% load static %}
 <div class="totalmenu">
-  <!-- 컨테이너 외부 눌렀을 때 팝업 꺼지게 만들기 -->
           <img src="/static/image/close.png" class="totalmenu-close a" onclick="menupopup(false)">
           <div class="totalmenu-cont">
               <li class="totalmenu-cont-li " style="height: 130px;">
@@ -8,9 +7,7 @@
                   <ul class="li-right">
                     <li><a href="{% url 'useGuide' %}#1" onclick="to_Useguide(1)" style='color:white'>이용안내</a></li>
                     <li><a href="{% url 'useGuide' %}#2" onclick="to_Useguide(2)" style='color:white'>주요연락처</a></li>
-                      <!-- 누르면 UseGuide의 주요연락처 탭으로 가야함
-                      근데 이게 링크로 바로가는게 아니라 그 페이지의 특정 탭을 열어야 하기 때문에 
-                      그냥 <a>로는 안될거 같음  -->
+
                       <li><a href="{% url 'useGuide' %}#3" onclick="to_Useguide(3)" style='color:white'>캠퍼스안내도</a></li>
                       <li><a href="{% url 'useGuide' %}#4" onclick="to_Useguide(4)" style='color:white'>오시는길</a></li>
                   </ul>
