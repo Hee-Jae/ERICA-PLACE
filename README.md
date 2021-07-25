@@ -88,6 +88,51 @@ Public
     <img src=https://user-images.githubusercontent.com/22339356/126877937-83ce28a6-eb97-466f-ba28-0320ac28c19b.png width="1000">
 </details>
 
+<details>
+    <summary> 주요 공간 안내 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126886737-f675da14-73ca-4ae4-affb-614de579856b.png width="1000">
+</details>
+
+<details>
+    <summary> 건물 별 안내 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126886629-4a716cb5-ed38-46b0-a57d-8a0efc971092.png width="1000">
+</details>
+
+<details>
+    <summary> 건물 별 안내 -> 건물 선택 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126886636-16cb5be8-06b3-4aad-a8a6-2bca4a70371f.png width="1000">
+</details>
+
+<details>
+    <summary> 대관 신청 (날짜, 시간 선택) </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126886634-3315f4e6-d93d-4229-8b54-1e12484ee119.png width="1000">
+</details>
+
+<details>
+    <summary> 대관 신청 (신청서 작성) </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126886641-a6a0c4f2-8fec-424a-8649-61451ab581e8.png width="1000">
+</details>
+
+<details>
+    <summary> 신청 완료 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126886752-6da72d8f-a6c1-4c43-bde7-e82bfd4dd6f4.png width="1000">
+</details>
+
+<details>
+    <summary> 신청 현황 조회 정보 입력 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126886755-5ecde647-8199-45d7-8d9a-1a54f5e70d2b.png width="1000">
+</details>
+
+<details>
+    <summary> 신청 현황 조회 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126886753-e02b3564-7217-42c4-8e0b-4d83a42d9cd3.png width="1000">
+</details>
+
+
+
+
+
+
 ---
 ### 개발팀 구성원
 
