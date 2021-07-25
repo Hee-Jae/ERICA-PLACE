@@ -76,16 +76,19 @@ Public
     <img src=https://user-images.githubusercontent.com/22339356/126877946-6abb979e-2c16-4ed3-81fe-a958d2c4a90e.png width="1000">
 </details>
 
-
 <details>
     <summary> 캠퍼스 실사 이미지 </summary>
     <img src=https://user-images.githubusercontent.com/22339356/126877942-9965739f-1d64-4b41-bd34-ec5f6e3709dc.png width="1000">
 </details>
 
-
 <details>
     <summary> 오시는 길 </summary>
     <img src=https://user-images.githubusercontent.com/22339356/126877937-83ce28a6-eb97-466f-ba28-0320ac28c19b.png width="1000">
+</details>
+
+<details>
+    <summary> 자주 묻는 질문 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126887731-cb6b15e4-fa13-4960-9c50-4d319dcb139b.png width="1000">
 </details>
 
 <details>
@@ -104,18 +107,35 @@ Public
 </details>
 
 <details>
-    <summary> 대관 신청 (날짜, 시간 선택) </summary>
+    <summary> 좌석 수로 장소 조회 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126887635-3c8c63f8-aeea-474a-8cbb-3ff51ca8451a.png width="1000">
+</details>
+
+<details>
+    <summary> 사용 용도 별 장소 추천 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126887641-1d575207-d6d1-40f3-b5bb-2223c08d387b.png width="1000">
+</details>
+
+<details>
+    <summary> 우측 상단 햄버거 메뉴 아이콘 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126887647-f8cdcad4-e65d-4d22-ab2d-4f8f49379922.png width="1000">
+</details>
+
+### 대관 신청
+
+<details>
+    <summary> 날짜, 시간 선택 </summary>
     <img src=https://user-images.githubusercontent.com/22339356/126886634-3315f4e6-d93d-4229-8b54-1e12484ee119.png width="1000">
 </details>
 
 <details>
-    <summary> 대관 신청 (신청서 작성) </summary>
+    <summary> 신청서 작성 </summary>
     <img src=https://user-images.githubusercontent.com/22339356/126886641-a6a0c4f2-8fec-424a-8649-61451ab581e8.png width="1000">
 </details>
 
 <details>
-    <summary> 신청 완료 </summary>
-    <img src=https://user-images.githubusercontent.com/22339356/126886752-6da72d8f-a6c1-4c43-bde7-e82bfd4dd6f4.png width="1000">
+    <summary> 신청 완료 (이메일 전송) </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126887587-2d157d24-2ac3-4cf5-b87c-c0055fa4bf3c.png width="600">
 </details>
 
 <details>
@@ -128,9 +148,32 @@ Public
     <img src=https://user-images.githubusercontent.com/22339356/126886753-e02b3564-7217-42c4-8e0b-4d83a42d9cd3.png width="1000">
 </details>
 
+<details>
+    <summary> 신청 취소 (인증번호입력) </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126887589-fe8c4cf6-2fdf-4060-9d48-8fc5c82396b9.png width="1000">
+</details>
 
+### 관리자 페이지
 
+<details>
+    <summary> 관리자 뷰 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126887767-7b26bbd5-0d28-48d4-87cd-54330ecd6c31.png width="1000">
+</details>
 
+<details>
+    <summary> 수정할 시설물 리스트 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126887769-d91a2637-4c26-431a-94e5-bbb9b10b8b64.png width="1000">
+</details>
+
+<details>
+    <summary> 시설물 정보 수정 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126887792-359aef27-d290-4859-a6b9-72c4a0b7f7c4.png width="1000">
+</details>
+
+<details>
+    <summary> 대관 신청 현황 관리자 뷰 </summary>
+    <img src=https://user-images.githubusercontent.com/22339356/126887796-ff1d1ab1-7a99-4bed-89ea-59288fc4bf13.png width="1000">
+</details>
 
 
 ---
